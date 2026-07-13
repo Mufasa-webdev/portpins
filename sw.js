@@ -6,7 +6,7 @@ const FILES_TO_CACHE = [
   "/portpins/script.js",
   "/portpins/manifest.json",
   "/portpins/ports.json",
-  "/portpins/media/inner.png", // check folder name case
+  "/portpins/Media/inner.png", // check folder name case
 ];
 
 self.addEventListener("install", (e) => {
