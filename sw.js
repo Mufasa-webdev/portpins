@@ -1,27 +1,34 @@
 const CACHE_NAME = "portpins-v1";
 const FILES_TO_CACHE = [
-  "/",
-  "/index.html",
-  "/style.css",
-  "/script.js",
-  "/ports.json",
-  "/manifest.json",
+  "/portpins/",
+  "/portpins/index.html",
+  "/portpins/style.css",
+  "/portpins/script.js",
+  "/portpins/manifest.json",
+  "/portpins/ports.json",
+  "/portpins/Media/inner.png", // check if folder is really "Media" (case sensitive)
 ];
 
-// Install SW
-self.addEventListener("install", (event) => {
-  event.waitUntil(
+self.addEventListener("install", (e) => {
+  e.waitUntil(
     caches.open(CACHE_NAME).then((cache) => cache.addAll(FILES_TO_CACHE)),
   );
 });
 
-// Serve cached files
-self.addEventListener("fetch", (event) => {
-  event.respondWith(
-    caches
-      .match(event.request)
-      .then((response) => response || fetch(event.request)),
+self.addEventListener("fetch", (e) => {
+  e.respondWith(
+    caches.match(e.request).then((response) => response || fetch(e.request)),
   );
 });
 
-// Update SW
+self.addEventListener("activate", (e) => {
+  e.waitUntil(
+    caches.keys().then((keys) =>
+      Promise.all(
+        keys.map((key) => {
+          if (key !== CACHE_NAME) return caches.delete(key);
+        }),
+      ),
+    ),
+  );
+});

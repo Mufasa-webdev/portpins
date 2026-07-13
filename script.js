@@ -1,8 +1,8 @@
 if ("serviceWorker" in navigator) {
   navigator.serviceWorker
-    .register("/sw.js")
-    .then((registration) => console.log("SW registered"))
-    .catch((error) => console.error("SW registration failed:", error));
+    .register("/portpins/sw.js")
+    .then(() => console.log("Service Worker registered"))
+    .catch((err) => console.error("Service Worker error:", err));
 }
 
 let portsData = [];
