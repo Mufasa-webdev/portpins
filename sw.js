@@ -6,7 +6,7 @@ const FILES_TO_CACHE = [
   "/portpins/script.js",
   "/portpins/manifest.json",
   "/portpins/ports.json",
-  "/portpins/Media/inner.png", // check if folder is really "Media" (case sensitive)
+  "/portpins/media/inner.png", // check folder name case
 ];
 
 self.addEventListener("install", (e) => {
@@ -17,7 +17,15 @@ self.addEventListener("install", (e) => {
 
 self.addEventListener("fetch", (e) => {
   e.respondWith(
-    caches.match(e.request).then((response) => response || fetch(e.request)),
+    caches.match(e.request).then((response) => {
+      return (
+        response ||
+        fetch(e.request).catch(() => {
+          // offline fallback to index.html
+          return caches.match("/portpins/index.html");
+        })
+      );
+    }),
   );
 });
 
