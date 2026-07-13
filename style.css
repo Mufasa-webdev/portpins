@@ -1,0 +1,411 @@
+:root {
+  --ocean-blue: rgb(0, 107, 207);
+  --light-oceanbkue: rgb(168, 212, 255);
+  --text-dark: rgb(1, 17, 34);
+  --text-soft-dark: rgb(93, 93, 93);
+  --text-light: #e8e7e7;
+  --teal: #00954d;
+  --soft-teal: #9df9cc45;
+  --orange: #fc751b;
+  --soft-orange: #fec49d55;
+  --purple: #9b0cd4;
+  --soft-purple: #dd87ff4d;
+}
+* {
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  color: inherit;
+  cursor: pointer;
+}
+body {
+  font-family: "Montserrat", sans-serif;
+  background-color: white;
+  color: var(--text-dark);
+  line-height: 1.7;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  height: 100vh;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+body::-webkit-scrollbar {
+  display: none;
+  width: 0;
+  background: transparent;
+}
+#searchPage {
+  padding: 20px 20px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 0px;
+  margin-bottom: 45px;
+  width: 100%;
+}
+header a {
+  display: flex;
+  flex-direction: row;
+  text-decoration: none;
+  justify-content: space-between;
+  align-items: center;
+}
+.hero {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-content: center;
+  align-items: center;
+}
+
+.hero-text {
+  font-size: 50px;
+  color: var(--teal);
+  margin-top: 80px;
+}
+.hero-p {
+  font-size: 20px;
+  color: var(--text-soft-dark);
+  font-weight: 500;
+}
+
+.logo-box {
+  cursor: pointer;
+}
+.logo-icon {
+  color: var(--teal);
+  font-size: 65px;
+}
+.logo-text {
+  font-size: 40px;
+  color: var(--text-soft-dark);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+
+.search {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+.search-bar {
+  border: none;
+  background-color: rgba(255, 255, 255, 0.296);
+  width: 100%;
+  height: 55px;
+  padding: 10px 15px;
+  border-radius: 15px;
+  font-size: 22px;
+  box-shadow: 1px 1px 3px rgb(128, 128, 128);
+  margin: 0px 0px 10px 0px;
+}
+.search-bar::placeholder {
+  font-size: 23px;
+  color: var(--text-soft-dark);
+}
+
+.port-card {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: 4px 4px 5px rgba(0, 0, 0, 0.21);
+  margin: 25px 15px;
+  border-radius: 10px;
+  cursor: pointer;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.port-card:hover {
+  transform: translateY(-3px);
+}
+.port-image {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 8vh;
+  overflow: hidden;
+}
+.port-name {
+  padding: 5px 20px;
+}
+
+h2 {
+  font-size: 18px;
+}
+.port-Page {
+  display: none;
+}
+
+.port-page {
+  display: flex;
+  flex-direction: column;
+  margin: 0px;
+  height: 100dvh;
+}
+
+.hero-image {
+  width: 100%;
+  height: 28%;
+  background-size: cover;
+  background-position: center;
+  margin: 0px 0px;
+}
+.label-div {
+  display: flex;
+  flex-direction: column;
+  padding: 0px 20px;
+  border-radius: 26px 26px 0px 0px;
+  background-color: rgb(247, 247, 247);
+  transform: translateY(-20px);
+}
+
+.label-header {
+  font-size: 27px;
+  color: var(--text-dark);
+  padding: 15px 0px;
+}
+.pills-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  overflow: hidden;
+  padding: 20px 0px;
+}
+
+.pills {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  box-shadow: -1px 4px 8px rgb(172, 172, 172);
+  padding: 5px;
+  min-width: 110px;
+  height: 110px;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.pills:hover {
+  transform: translateY(-3px);
+  background-color: transparent;
+}
+.pins-eat {
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--orange);
+}
+.pins-tour {
+  font-weight: 500;
+  font-size: 13px;
+  color: var(--teal);
+}
+
+.fa-utensils {
+  color: var(--orange);
+  font-size: 30px;
+}
+.fa-cart-shopping {
+  color: var(--purple);
+  font-size: 30px;
+}
+.fa-person-hiking {
+  color: var(--teal);
+  font-size: 30px;
+}
+.pins-shopping {
+  color: var(--purple);
+  font-size: 13px;
+}
+.pills-eat {
+  background-color: var(--soft-orange);
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.pills-shopping {
+  background-color: var(--soft-purple);
+  cursor: pointer;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  border-radius: 12px;
+}
+
+.pills-tour {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  border-radius: 12px;
+  background-color: var(--soft-teal);
+}
+.headertext-eat {
+  font-size: 15px;
+  font-weight: 500;
+}
+.headertext-tour {
+  font-size: 15px;
+  font-weight: 500;
+}
+.headertext-shopping {
+  font-size: 15px;
+  font-weight: 500;
+}
+
+.allpinscontainer-css {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 30px 20px;
+}
+.pins-list {
+  display: none;
+}
+
+.pin-card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  box-shadow: 2px 5px 5px rgb(152, 152, 152);
+  padding-bottom: 20px;
+}
+
+.pincardcoverCss {
+  background-position: center;
+  background-size: cover;
+  height: 120px;
+  border-radius: 20px 20px 0px 0px;
+}
+.pincardinfo-css {
+}
+
+.pincardinfo-headertext {
+  padding: 10px;
+  font-size: 23px;
+  align-self: flex-start;
+  color: var(--ocean-blue);
+}
+.pincardinfo-desc {
+  color: var(--text-dark);
+  font-weight: 500;
+  padding: 0px 10px;
+  text-align: justify;
+  font-size: 17px;
+}
+.pins-desc {
+  display: none;
+}
+.pindesc-div {
+  display: flex;
+  flex-direction: column;
+}
+.pindesc-div2 {
+  display: flex;
+  flex-direction: column;
+}
+
+.pindesc-Cover {
+  background-size: cover;
+  background-position: center;
+  height: 200px;
+  margin-bottom: 20px;
+}
+
+.port-info {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  margin-top: -27px;
+  background-color: white;
+  padding: 20px 20px;
+}
+.pinsdesc-headertext {
+  padding: 10px;
+  font-size: 25px;
+  align-self: center;
+  color: var(--text-darks);
+}
+.cta {
+  font-size: 15px;
+  padding: 15px 15px;
+  border-radius: 15px;
+  border: none;
+  background-color: var(--ocean-blue);
+  color: var(--text-light);
+  cursor: pointer;
+  margin: 20px 0px;
+  width: 40%;
+  align-self: center;
+}
+.addr {
+  padding: 0px 20px;
+  font-size: 17px;
+  color: var(--text-soft-dark);
+  font-weight: 500;
+}
+.galleria {
+  display: flex;
+  gap: 10px;
+  margin: 0px 10px;
+  padding: 10px 0px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+.galleria img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 12px;
+}
+.lightbox {
+  display: none; /* hidden by default */
+  position: fixed;
+  z-index: 999;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.9); /* dark background */
+  justify-content: center;
+  align-items: center;
+}
+
+.lightbox-content {
+  max-width: 90%;
+  max-height: 90%;
+  border-radius: 12px;
+}
+
+.close {
+  position: absolute;
+  top: 20px;
+  right: 40px;
+  color: white;
+  font-size: 40px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.gallery-img {
+  cursor: pointer;
+  transition: 0.3s;
+}
+.gallery-img:hover {
+  opacity: 0.8;
+}

@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Port Pins| Port Companion</title>
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Poppins:100,100italic,200,200italic,300,300italic,regular,italic,500,500italic,600,600italic,700,700italic,800,800italic,900,900italic"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css?family=Playfair:300,regular,500,600,700,800,900,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#0066cc" />
+
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  </head>
+  <body>
+    <section id="searchPage">
+      <header>
+        <a href="" class="Logo Box">
+          <i class="fa-solid fa-location-dot logo-icon"></i>
+          <div class="logo-text">Port <span>Pins</span></div>
+        </a>
+        <!--- <button class="hamburger">☰</button>-->
+      </header>
+      <div class="hero">
+        <h1 class="hero-text">Welcome!</h1>
+      </div>
+      <!--
+      <nav>
+        <ul>
+          <li class="list-links"><a href="#home">Home</a></li>
+          <li class="list-links"><a href="#port">Ports</a></li>
+          <li class="list-links"><a href="#about-us">About</a></li>
+          <li class="list-links"><a href="#Fav">Favorites</a></li>
+        </ul>
+      </nav>
+      <div class="lang">
+        <a href="#" class="lang-link">EN</a>
+    
+    </header>
+    <div class="pills-container">
+      <a href="eat" class="pills">Eat</a>
+      <a href="eat" class="pills">Relax</a>
+      <a href="eat" class="pills">Adventure</a>
+    </div>  </div>-->
+      <div class="search">
+        <input
+          type="text"
+          class="search-bar"
+          id="searchBar"
+          placeholder="Search for a port"
+        />
+        <!--<p class="hero-p">Search from 80+ cruiseports worldwide.</p>
+        <i class="fa-solid fa-filter filter"></i>-->
+      </div>
+      <!--Results container-->
+      <div id="resultsContainer"></div>
+
+      <!-- <div class="footer">
+      <div class="popular-ports">
+        <i class="fa-regular fa-clock"></i>
+        <h4>Your Recent Ports</h4>
+      </div>
+      <p>Quick access to your last viewed ports.</p>
+    </div>
+    <div id="recentPortsContainer"></div>
+  
+    <a href="http://127.0.0.1:5500/pins.html">
+        <div class="port-card">
+        <div class="port-image"></div>
+        <div class="port-name">
+          <h2>Cairns Qld</h2>
+          <div class="icon-text">
+            <i class="fa-solid fa-ship ship-port"></i>
+            <p class="ship-text">Docked 11:23 - A - RD</p>
+          </div>
+          <div class="icon-text">
+            <i class="fa-regular fa-clock ship-port"></i>
+            <p class="ship-text">Departs <span>4:30 PM</span></p>
+          </div>
+        </div>
+      </div></a>
+      <div class="port-card">
+        <div class="port-image-2"></div>
+        <div class="port-name">
+          <h2>Tangalooma</h2>
+          <div class="icon-text">
+            <i class="fa-solid fa-ship ship-port"></i>
+            <p class="ship-text">Docked 11:23 - A - RD</p>
+          </div>
+          <div class="icon-text">
+            <i class="fa-regular fa-clock ship-port"></i>
+            <p class="ship-text">Departs <span>6:30 PM</span></p>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div class="popular-ports">
+          <i class="fa-solid fa-fire"></i>
+          <h4>Popular ports</h4>
+        </div>
+        <p>Explore top destinations loved by travelers.</p>
+        <div class="locations">
+          <div class="port-item">
+            <div class="pop-card-nassau"></div>
+            <h4 class="pop-text">Nassau</h4>
+            <p class="pop-text-2">Bahamas</p>
+          </div>
+          <div class="port-item">
+            <div class="pop-card-mexico"></div>
+            <h4 class="pop-text">Mexico</h4>
+            <p class="pop-text-2">Cozumel</p>
+          </div>
+          <div class="port-item">
+            <div class="pop-card-vanuatu"></div>
+            <h4 class="pop-text">Vanuatu</h4>
+            <p class="pop-text-2">Mystery Island</p>
+          </div>
+          <div class="port-item">
+            <div class="pop-card-honduras"></div>
+            <h4 class="pop-text">Honduras</h4>
+            <p class="pop-text-2">Roatan</p>
+          </div>
+        </div>
+      </div>
+    </div>-->
+    </section>
+    <section id="portPage" class="port-Page">
+      <div id="pillsDiv" class="pills-container">
+        <a href="eat" class="pills eat"
+          >Eat <i class="fa-solid fa-utensils"></i>
+          <span id="pincount" class="pins-text"> 5 pins </span>
+        </a>
+        <a href="eat" class="pills adv"
+          >Adventure
+          <i class="fa-solid fa-person-hiking"></i>
+          <span id="pincount" class="pins-textad"> 5 pins </span>
+        </a>
+        <a href="eat" class="pills shop"
+          >Shopping
+          <i class="fa-solid fa-cart-shopping"></i>
+          <span id="pincount" class="pins-textsh"> 6 pins</span>
+        </a>
+      </div>
+    </section>
+
+    <section id="pinsList" class="pins-list">
+      <div id="allpins" class="allpinscontainer-css"></div>
+    </section>
+    <section id="pinsDesc" class="pins-desc">
+      <div id="pinsdescription" class="pinsdesc-css"></div>
+    </section>
+
+    <div id="lightbox" class="lightbox">
+      <img class="lightbox-content" id="lightbox-img" />
+      <script src="script.js"></script>
+    </div>
+  </body>
+</html>
