@@ -1,8 +1,10 @@
 if ("serviceWorker" in navigator) {
-  navigator.serviceWorker
-    .register("/portpins/sw.js")
-    .then(() => console.log("Service Worker registered"))
-    .catch((err) => console.error("Service Worker error:", err));
+  window.addEventListener("load", () => {
+    navigator.serviceWorker
+      .register("./sw.js") // <-- use ./ instead of /
+      .then((reg) => console.log("SW registered:", reg))
+      .catch((err) => console.log("SW registration failed:", err));
+  });
 }
 
 let portsData = [];
@@ -37,7 +39,111 @@ const lightbox = document.getElementById("lightbox");
 
 //functions down here ------------------------------
 
+//timer
+let countdownInterval = null;
+let onboardTime = null;
+
+// Request notification permission on load
+if ("Notification" in window && Notification.permission === "default") {
+  Notification.requestPermission();
+}
+
+function showNotification(title, body) {
+  if (Notification.permission === "granted") {
+    new Notification(title, { body, icon: "./Media/inner.png" });
+  }
+}
+
+function toggleTimer() {
+  if (countdownInterval) {
+    stopTimer();
+  } else {
+    startTimer();
+  }
+}
+
+function startTimer() {
+  const timeInput = document.getElementById("welcomeTimePicker").value;
+  if (!timeInput) return alert("Pick a time first");
+
+  onboardTime = timeInput;
+  localStorage.setItem("onboardTime", onboardTime);
+  localStorage.setItem("timerRunning", "true");
+
+  document.getElementById("timerBtn").textContent = "Stop Timer";
+  document.getElementById("timerBtn").style.background = "#ef4444";
+
+  showNotification("Timer Started", `Onboard time set to ${onboardTime}`);
+  runCountdown();
+}
+
+function stopTimer() {
+  clearInterval(countdownInterval);
+  countdownInterval = null;
+  localStorage.setItem("timerRunning", "false");
+
+  document.getElementById("timerBtn").textContent = "Set Onboard Time";
+  document.getElementById("timerBtn").style.background = "#2563eb";
+  document.getElementById("timeLeft").textContent = "--:--";
+  document.getElementById("countdownBar").className = "";
+  document.getElementById("countdownBar").style.background = "#10b981";
+
+  showNotification("Timer Stopped", "Countdown paused");
+}
+
+function runCountdown() {
+  clearInterval(countdownInterval);
+
+  countdownInterval = setInterval(() => {
+    const [h, m] = onboardTime.split(":").map(Number);
+    const target = new Date();
+    target.setHours(h, m, 0, 0);
+
+    const now = new Date();
+    let diff = Math.floor((target - now) / 1000); // seconds left
+
+    if (diff <= 0) {
+      diff = 0;
+      stopTimer();
+      showNotification("All Aboard!", "It's time to board!");
+    }
+
+    const mins = String(Math.floor(diff / 60)).padStart(2, "0");
+    const secs = String(diff % 60).padStart(2, "0");
+    document.getElementById("timeLeft").textContent = `${mins}:${secs}`;
+
+    // Color bar logic
+    const bar = document.getElementById("countdownBar");
+    bar.className = "";
+    if (diff <= 300) {
+      // 5 min
+      bar.classList.add("danger");
+      if (diff === 300)
+        showNotification("5 Minutes Left", "Get ready to board!");
+    } else if (diff <= 900) {
+      // 15 min
+      bar.classList.add("warning");
+      if (diff === 900)
+        showNotification("15 Minutes Left", "Head to the gate soon");
+    }
+  }, 1000);
+}
+
+// Load saved timer on refresh/offline
+window.addEventListener("load", () => {
+  const saved = localStorage.getItem("onboardTime");
+  const running = localStorage.getItem("timerRunning");
+  if (saved) {
+    document.getElementById("welcomeTimePicker").value = saved;
+    onboardTime = saved;
+  }
+  if (running === "true") {
+    startTimer();
+  }
+});
+
 //pinsdescription page-------
+
 function pinDescription(pin) {
   pinsDescSection.style.display = "block";
   pinsList.style.display = "none";

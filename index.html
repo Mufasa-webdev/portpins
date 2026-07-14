@@ -23,9 +23,9 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <link rel="stylesheet" href="/portpins/style.css" />
-    <link rel="manifest" href="/portpins/manifest.json" />
-    <meta name="theme-color" content="#0066cc" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="manifest" href="manifest.json" />
+    <meta name="theme-color" content="#2563eb" />
 
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
@@ -33,14 +33,22 @@
   <body>
     <section id="searchPage">
       <header>
-        <a href="" class="Logo Box">
+        <a href="" class="Logo Box" id="#countdownBar">
           <i class="fa-solid fa-location-dot logo-icon"></i>
-          <div class="logo-text">Port <span>Pins</span></div>
+          <div class="logo-text">Port <span class="logo-text2">Pins</span></div>
         </a>
+
         <!--- <button class="hamburger">☰</button>-->
       </header>
+      <div class="timer-box">
+        <input type="time" id="welcomeTimePicker" value="17:30" />
+        <button id="timerBtn" onclick="toggleTimer()">Set Onboard Time</button>
+        <div id="countdownBar">
+          All Aboard: <span id="timeLeft">--:--</span>
+        </div>
+      </div>
       <div class="hero">
-        <h1 class="hero-text">Welcome!</h1>
+        <h1 class="hero-text">Welcome <span class="logo-text2">!</span></h1>
       </div>
       <!--
       <nav>
@@ -72,75 +80,6 @@
       </div>
       <!--Results container-->
       <div id="resultsContainer"></div>
-
-      <!-- <div class="footer">
-      <div class="popular-ports">
-        <i class="fa-regular fa-clock"></i>
-        <h4>Your Recent Ports</h4>
-      </div>
-      <p>Quick access to your last viewed ports.</p>
-    </div>
-    <div id="recentPortsContainer"></div>
-  
-    <a href="http://127.0.0.1:5500/pins.html">
-        <div class="port-card">
-        <div class="port-image"></div>
-        <div class="port-name">
-          <h2>Cairns Qld</h2>
-          <div class="icon-text">
-            <i class="fa-solid fa-ship ship-port"></i>
-            <p class="ship-text">Docked 11:23 - A - RD</p>
-          </div>
-          <div class="icon-text">
-            <i class="fa-regular fa-clock ship-port"></i>
-            <p class="ship-text">Departs <span>4:30 PM</span></p>
-          </div>
-        </div>
-      </div></a>
-      <div class="port-card">
-        <div class="port-image-2"></div>
-        <div class="port-name">
-          <h2>Tangalooma</h2>
-          <div class="icon-text">
-            <i class="fa-solid fa-ship ship-port"></i>
-            <p class="ship-text">Docked 11:23 - A - RD</p>
-          </div>
-          <div class="icon-text">
-            <i class="fa-regular fa-clock ship-port"></i>
-            <p class="ship-text">Departs <span>6:30 PM</span></p>
-          </div>
-        </div>
-      </div>
-      <div class="footer">
-        <div class="popular-ports">
-          <i class="fa-solid fa-fire"></i>
-          <h4>Popular ports</h4>
-        </div>
-        <p>Explore top destinations loved by travelers.</p>
-        <div class="locations">
-          <div class="port-item">
-            <div class="pop-card-nassau"></div>
-            <h4 class="pop-text">Nassau</h4>
-            <p class="pop-text-2">Bahamas</p>
-          </div>
-          <div class="port-item">
-            <div class="pop-card-mexico"></div>
-            <h4 class="pop-text">Mexico</h4>
-            <p class="pop-text-2">Cozumel</p>
-          </div>
-          <div class="port-item">
-            <div class="pop-card-vanuatu"></div>
-            <h4 class="pop-text">Vanuatu</h4>
-            <p class="pop-text-2">Mystery Island</p>
-          </div>
-          <div class="port-item">
-            <div class="pop-card-honduras"></div>
-            <h4 class="pop-text">Honduras</h4>
-            <p class="pop-text-2">Roatan</p>
-          </div>
-        </div>
-      </div>
-    </div>-->
     </section>
     <section id="portPage" class="port-Page">
       <div id="pillsDiv" class="pills-container">
@@ -171,6 +110,7 @@
     <div id="lightbox" class="lightbox">
       <img class="lightbox-content" id="lightbox-img" />
       <script src="script.js"></script>
+      <script src="backButton.js"></script>
     </div>
   </body>
 </html>

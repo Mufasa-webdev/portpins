@@ -1,15 +1,16 @@
 :root {
-  --ocean-blue: rgb(0, 107, 207);
+  --ocean-blue: #0369a1;
   --light-oceanbkue: rgb(168, 212, 255);
   --text-dark: rgb(1, 17, 34);
   --text-soft-dark: rgb(93, 93, 93);
   --text-light: #e8e7e7;
-  --teal: #00954d;
+  --teal: #0d9488;
   --soft-teal: #9df9cc45;
-  --orange: #fc751b;
+  --orange: #f59e0b;
   --soft-orange: #fec49d55;
   --purple: #9b0cd4;
   --soft-purple: #dd87ff4d;
+  --warning-Red: #dc2626;
 }
 * {
   margin: 0px;
@@ -42,6 +43,56 @@ body::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
+.timer-box {
+  display: flex;
+  align-items: center; /* vertically center them */
+  justify-content: center; /* center the whole row */
+  gap: 8px; /* space between items */
+  margin: 2px 0;
+  flex-wrap: wrap; /* so it drops to next line on small screens */
+}
+
+.onboard-row input[type="time"] {
+  padding: 6px 8px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+.onboard-row button {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb; /* that blue you have */
+  color: white;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap; /* keep "All Aboard" on 1 line */
+}
+
+.onboard-row button:hover {
+  background: #1d4ed8;
+}
+.top-left {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: #2563eb;
+  color: white;
+  padding: 8px 16px;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1, 0, 0, 0.1);
+  z-index: 1000;
+  cursor: pointer;
+}
+
+.top-left:hover {
+  background: #1d4ed8;
+}
+
 #searchPage {
   padding: 20px 20px;
 }
@@ -75,7 +126,7 @@ header a {
   margin-top: 80px;
 }
 .hero-p {
-  font-size: 20px;
+  font-size: 15px;
   color: var(--text-soft-dark);
   font-weight: 500;
 }
@@ -84,14 +135,77 @@ header a {
   cursor: pointer;
 }
 .logo-icon {
-  color: var(--teal);
-  font-size: 65px;
+  color: var(--orange);
+  font-size: 55px;
 }
 .logo-text {
   font-size: 40px;
-  color: var(--text-soft-dark);
+  color: var(--teal);
   font-family: "Playfair Display", serif;
   font-weight: 700;
+}
+.logo-text2 {
+  font-size: 40px;
+  color: var(--orange);
+  font-family: "Playfair Display", serif;
+  font-weight: 700;
+}
+.timer-box {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin: 12px 0;
+  flex-wrap: nowrap;
+}
+
+.timer-box input[type="time"] {
+  width: 90px;
+  padding: 6px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+#timerBtn {
+  padding: 6px 12px;
+  border: none;
+  border-radius: 6px;
+  background: #2563eb;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+#countdownBar {
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #10b981; /* green = good */
+  color: white;
+  font-weight: 600;
+  transition: background 0.3s;
+}
+
+/* Color states */
+#countdownBar.warning {
+  background: #f59e0b;
+} /* orange = 15 min left */
+#countdownBar.danger {
+  background: #ef4444;
+} /* red = 5 min left */
+
+button {
+  padding: 10px 20px;
+  background: #2563eb;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+button:hover {
+  background: #1d4ed8;
 }
 
 .search {
@@ -112,7 +226,7 @@ header a {
   margin: 0px 0px 10px 0px;
 }
 .search-bar::placeholder {
-  font-size: 23px;
+  font-size: 15px;
   color: var(--text-soft-dark);
 }
 
