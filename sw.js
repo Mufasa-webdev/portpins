@@ -7,6 +7,12 @@ const FILES_TO_CACHE = [
   "./backButton.js",
   "./ports.json",
   "./manifest.json",
+  "./Media/inner.png",
+  "./Media/outersquare.png",
+  "./Media/sydney-3.jpg",
+  "./Media/rum-cake-5.webp",
+  "./Media/flea-market-1.webp",
+  "./Media/nassau-4.webp",
 ];
 
 self.addEventListener("install", (event) => {

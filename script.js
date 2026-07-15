@@ -40,17 +40,42 @@ const lightbox = document.getElementById("lightbox");
 //functions down here ------------------------------
 
 //timer
+// Timer
 let countdownInterval = null;
 let onboardTime = null;
 
-// Request notification permission on load
+// Request notification permission on load (just in case)
 if ("Notification" in window && Notification.permission === "default") {
   Notification.requestPermission();
 }
 
-function showNotification(title, body) {
-  if (Notification.permission === "granted") {
-    new Notification(title, { body, icon: "./Media/inner.png" });
+function playBeep() {
+  // Create a beep using WebAudio API - works without any files
+  const ctx = new (window.AudioContext || window.webkitAudioContext)();
+  const oscillator = ctx.createOscillator();
+  const gainNode = ctx.createGain();
+
+  oscillator.connect(gainNode);
+  gainNode.connect(ctx.destination);
+
+  oscillator.type = "sine"; // 'sine' sound
+  oscillator.frequency.value = 800; // pitch
+  gainNode.gain.value = 0.3; // volume
+
+  oscillator.start();
+  oscillator.stop(ctx.currentTime + 0.2); // 0.2 second beep
+}
+
+///show phone notification
+
+function showPhoneNotification(title, body) {
+  // Only show if user gave permission
+  if ("Notification" in window && Notification.permission === "granted") {
+    new Notification(title, {
+      body: body,
+      icon: "https://cdn-icons-png.flaticon.com/512/484/484167.png", // ship icon
+      vibrate: [200, 100, 200], // phone vibrates: beep-pause-beep
+    });
   }
 }
 
@@ -72,8 +97,9 @@ function startTimer() {
 
   document.getElementById("timerBtn").textContent = "Stop Timer";
   document.getElementById("timerBtn").style.background = "#ef4444";
+  playBeep();
+  alert(`Timer Started: Onboard time set to ${onboardTime}`);
 
-  showNotification("Timer Started", `Onboard time set to ${onboardTime}`);
   runCountdown();
 }
 
@@ -88,51 +114,61 @@ function stopTimer() {
   document.getElementById("countdownBar").className = "";
   document.getElementById("countdownBar").style.background = "#10b981";
 
-  showNotification("Timer Stopped", "Countdown paused");
+  playBeep();
+  alert("Timer Stopped - Countdown paused");
 }
 
 function runCountdown() {
   clearInterval(countdownInterval);
-
   countdownInterval = setInterval(() => {
     const [h, m] = onboardTime.split(":").map(Number);
     const target = new Date();
     target.setHours(h, m, 0, 0);
-
     const now = new Date();
-    let diff = Math.floor((target - now) / 1000); // seconds left
+    let diff = Math.floor((target - now) / 1000);
+    console.log(diff);
 
+    if (diff === 60) {
+      playBeep();
+      alert("1 Hour Left - Start wrapping up.");
+    }
+    if (diff === 30) {
+      playBeep();
+      alert("30 Minutes Left! Head back NOW!");
+    }
     if (diff <= 0) {
       diff = 0;
       stopTimer();
-      showNotification("All Aboard!", "It's time to board!");
+      playBeep();
+      alert("All Aboard! It's time to board!");
     }
 
     const mins = String(Math.floor(diff / 60)).padStart(2, "0");
     const secs = String(diff % 60).padStart(2, "0");
     document.getElementById("timeLeft").textContent = `${mins}:${secs}`;
 
-    // Color bar logic
     const bar = document.getElementById("countdownBar");
     bar.className = "";
     if (diff <= 300) {
-      // 5 min
       bar.classList.add("danger");
-      if (diff === 300)
-        showNotification("5 Minutes Left", "Get ready to board!");
+      if (diff === 300) {
+        playBeep();
+        alert("5 Minutes Left - Get ready to board!");
+      }
     } else if (diff <= 900) {
-      // 15 min
       bar.classList.add("warning");
-      if (diff === 900)
-        showNotification("15 Minutes Left", "Head to the gate soon");
+      if (diff === 900) {
+        playBeep();
+        alert("15 Minutes Left - Head to the gate soon");
+      }
     }
   }, 1000);
 }
 
-// Load saved timer on refresh/offline
 window.addEventListener("load", () => {
   const saved = localStorage.getItem("onboardTime");
   const running = localStorage.getItem("timerRunning");
+
   if (saved) {
     document.getElementById("welcomeTimePicker").value = saved;
     onboardTime = saved;
@@ -188,30 +224,44 @@ function showPinsPage(category) {
   allpinscontainer.innerHTML = "";
 
   category.pins.forEach((pin) => {
-    const pinCard = document.createElement("div");
-    pinCard.classList.add("pin-card");
+    const pincardContainer = document.createElement("div");
+    pincardContainer.classList.add("pin-card");
 
-    const pinCardCover = document.createElement("div");
-    pinCardCover.style.backgroundImage = `url(${pin.pinImage})`;
-    pinCardCover.classList.add("pincardcoverCss");
+    const pincardCover = document.createElement("div");
+    pincardCover.classList.add("pincardcoverCss");
+    pincardCover.style.backgroundImage = `url(${pin.pinImage})`;
 
     const pincardInfo = document.createElement("div");
-    pincardInfo.classList.add("pincardinfo-css");
+    pincardInfo.classList.add("pincardInfo");
     pincardInfo.innerHTML = `
-    <h2 class="pincardinfo-headertext"> ${pin.name}</h2>
-    <p class="pincardinfo-desc">${pin.desc} </p>
+    <h2 class="pincardheadertext-css">${pin.name}</h2>
+    <div class="pincardicon">
+    <i class="${pin.dist}"></i> <p class="pincardicontime"> ${pin.time}</p>
+    </div>
+    <div class="tagbox">
+    <button class="pincard-tag" >${pin.tag}</button>
+    <button class="pincard-tag2 ">${pin.tag2}</button>
+    </div>
+    
     `;
 
-    pinCard.appendChild(pinCardCover);
-    pinCard.appendChild(pincardInfo);
-    allpinscontainer.appendChild(pinCard);
+    pincardContainer.appendChild(pincardCover);
+    pincardContainer.appendChild(pincardInfo);
 
-    pinCard.addEventListener("click", () => {
+    allpinscontainer.appendChild(pincardContainer);
+
+    pincardContainer.addEventListener("click", () => {
       pinDescription(pin);
     });
-  });
 
-  pinsList.appendChild(allpinscontainer);
+    /*pin.tag.forEach((tagitem) => {
+      const tagbox = document.createElement("div");
+      tagbox.classList.add("pincard-tag");
+      tagbox.innerText = tagitem;
+
+      allpinscontainer.appendChild(tagbox);
+    });*/
+  });
 }
 
 //showPageeee----------------------------------

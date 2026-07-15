@@ -2,7 +2,7 @@
   "ports": [
     {
       "name": "Sydney",
-      "region": "White Quay Terminal",
+      "region": "Circular Quay Terminal",
       "image": "Media/sydney-3.jpg",
       "categories": [
         {
@@ -11,10 +11,28 @@
           "pins": [
             {
               "name": "Pancho's Backyard",
+              "dist": "fa-solid fa-walking",
+              "time": "7 min walk",
               "pinImage": "Media/pancho-10.jpg",
               "addr": "25 Banik Crescent, Old Potter Cozumel, Mexico",
               "fee": "$50",
-              "desc": ["Margaritas", "Live music"],
+              "tag": "Margaritas",
+              "tag2": "-",
+              "api": "api-google",
+              "gallery": [
+                "Media/alex-haney-CAHjZmVkSH4-unsplash.jpg",
+                "Media/jay-wennington-N_Y88TWWGwA-unsplash.jpg"
+              ]
+            },
+            {
+              "name": "Yoci Cream Bakes",
+              "dist": "fa-solid fa-walking",
+              "time": "15 min walk",
+              "pinImage": "Media/albert-YYZU0Lo1uXE-unsplash.jpg",
+              "addr": "25 Banik Crescent, Old Potter Cozumel, Mexico",
+              "fee": "$50",
+              "tag": "Cream & Cheese",
+              "tag2": "Hot",
               "api": "api-google",
               "gallery": [
                 "Media/alex-haney-CAHjZmVkSH4-unsplash.jpg",
@@ -31,7 +49,7 @@
               "name": "Sydney Sky Diving",
               "pinImage": "sky.jpg",
               "addr": "Citizens Square,New Beach Rd , Sydney",
-              "desc": ["Fans Favorite", "Popular"],
+              "desc": ["Crew Favorite", "Popular"],
               "fee": "$120",
               "api": "api-google",
               "gallery": ["Media/sydney-2.webp", "Media/sydney-1.avif"]
@@ -54,13 +72,6 @@
           ]
         }
       ]
-    },
-    {
-      "name": "Bahamas",
-      "image": "Media/nassau-1.webp",
-      "region": "Nassau",
-      "addr": "23 banis ldsalmd adnksd",
-      "categories": []
     }
   ]
 }
