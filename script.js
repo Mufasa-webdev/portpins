@@ -49,21 +49,37 @@ if ("Notification" in window && Notification.permission === "default") {
   Notification.requestPermission();
 }
 
+let audioCtx; // global
+
+function unlockAudio() {
+  if (!audioCtx) {
+    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+  }
+  if (audioCtx.state === "suspended") {
+    audioCtx.resume();
+  }
+}
+
 function playBeep() {
-  // Create a beep using WebAudio API - works without any files
-  const ctx = new (window.AudioContext || window.webkitAudioContext)();
-  const oscillator = ctx.createOscillator();
-  const gainNode = ctx.createGain();
+  unlockAudio(); // make sure it's running
+
+  const oscillator = audioCtx.createOscillator();
+  const gainNode = audioCtx.createGain();
 
   oscillator.connect(gainNode);
-  gainNode.connect(ctx.destination);
+  gainNode.connect(audioCtx.destination);
 
-  oscillator.type = "sine"; // 'sine' sound
-  oscillator.frequency.value = 800; // pitch
-  gainNode.gain.value = 0.3; // volume
+  oscillator.type = "sine";
+  oscillator.frequency.setValueAtTime(880, audioCtx.currentTime); // A5 beep
+
+  gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
+  gainNode.gain.exponentialRampToValueAtTime(
+    0.0001,
+    audioCtx.currentTime + 0.3,
+  );
 
   oscillator.start();
-  oscillator.stop(ctx.currentTime + 0.2); // 0.2 second beep
+  oscillator.stop(audioCtx.currentTime + 0.3);
 }
 
 ///show phone notification
@@ -88,6 +104,9 @@ function toggleTimer() {
 }
 
 function startTimer() {
+  unlockAudio(); // <-- add this
+  // ... rest of your code
+
   const timeInput = document.getElementById("welcomeTimePicker").value;
   if (!timeInput) return alert("Pick a time first");
 
@@ -104,6 +123,9 @@ function startTimer() {
 }
 
 function stopTimer() {
+  unlockAudio(); // <-- add this
+  // ... rest of your code
+
   clearInterval(countdownInterval);
   countdownInterval = null;
   localStorage.setItem("timerRunning", "false");
