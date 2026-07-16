@@ -65,11 +65,10 @@ function pinDescription(pin) {
   `;
   const takeMeBtn = pindescdiv2.querySelector(".cta");
   takeMeBtn.addEventListener("click", () => {
-    if (pin.lat && pin.lng) {
-      const url = `https://www.google.com/maps?q=${pin.lat},${pin.lng}`;
-      window.open(url, "_blank");
+    if (pin.mapUrl) {
+      window.open(pin.mapUrl, "_blank");
     } else {
-      alert("Map coordinates missing!");
+      alert("Map URL missing for this port!");
     }
   });
 
