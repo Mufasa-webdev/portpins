@@ -39,167 +39,6 @@ const lightbox = document.getElementById("lightbox");
 
 //functions down here ------------------------------
 
-//timer
-// Timer
-let countdownInterval = null;
-let onboardTime = null;
-
-// Request notification permission on load (just in case)
-if ("Notification" in window && Notification.permission === "default") {
-  Notification.requestPermission();
-}
-
-let audioCtx; // global
-
-function unlockAudio() {
-  if (!audioCtx) {
-    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-  }
-  if (audioCtx.state === "suspended") {
-    audioCtx.resume();
-  }
-}
-
-function playBeep() {
-  unlockAudio(); // make sure it's running
-
-  const oscillator = audioCtx.createOscillator();
-  const gainNode = audioCtx.createGain();
-
-  oscillator.connect(gainNode);
-  gainNode.connect(audioCtx.destination);
-
-  oscillator.type = "sine";
-  oscillator.frequency.setValueAtTime(880, audioCtx.currentTime); // A5 beep
-
-  gainNode.gain.setValueAtTime(0.3, audioCtx.currentTime);
-  gainNode.gain.exponentialRampToValueAtTime(
-    0.0001,
-    audioCtx.currentTime + 0.3,
-  );
-
-  oscillator.start();
-  oscillator.stop(audioCtx.currentTime + 0.3);
-}
-
-///show phone notification
-
-function showPhoneNotification(title, body) {
-  // Only show if user gave permission
-  if ("Notification" in window && Notification.permission === "granted") {
-    new Notification(title, {
-      body: body,
-      icon: "https://cdn-icons-png.flaticon.com/512/484/484167.png", // ship icon
-      vibrate: [200, 100, 200], // phone vibrates: beep-pause-beep
-    });
-  }
-}
-
-function toggleTimer() {
-  if (countdownInterval) {
-    stopTimer();
-  } else {
-    startTimer();
-  }
-}
-
-function startTimer() {
-  unlockAudio(); // <-- add this
-  // ... rest of your code
-
-  const timeInput = document.getElementById("welcomeTimePicker").value;
-  if (!timeInput) return alert("Pick a time first");
-
-  onboardTime = timeInput;
-  localStorage.setItem("onboardTime", onboardTime);
-  localStorage.setItem("timerRunning", "true");
-
-  document.getElementById("timerBtn").textContent = "Stop Timer";
-  document.getElementById("timerBtn").style.background = "#ef4444";
-  playBeep();
-  alert(`Timer Started: Onboard time set to ${onboardTime}`);
-
-  runCountdown();
-}
-
-function stopTimer() {
-  unlockAudio(); // <-- add this
-  // ... rest of your code
-
-  clearInterval(countdownInterval);
-  countdownInterval = null;
-  localStorage.setItem("timerRunning", "false");
-
-  document.getElementById("timerBtn").textContent = "Set Onboard Time";
-  document.getElementById("timerBtn").style.background = "#2563eb";
-  document.getElementById("timeLeft").textContent = "--:--";
-  document.getElementById("countdownBar").className = "";
-  document.getElementById("countdownBar").style.background = "#10b981";
-
-  playBeep();
-  alert("Timer Stopped - Countdown paused");
-}
-
-function runCountdown() {
-  clearInterval(countdownInterval);
-  countdownInterval = setInterval(() => {
-    const [h, m] = onboardTime.split(":").map(Number);
-    const target = new Date();
-    target.setHours(h, m, 0, 0);
-    const now = new Date();
-    let diff = Math.floor((target - now) / 1000);
-    console.log(diff);
-
-    if (diff === 60) {
-      playBeep();
-      alert("1 Hour Left - Start wrapping up.");
-    }
-    if (diff === 30) {
-      playBeep();
-      alert("30 Minutes Left! Head back NOW!");
-    }
-    if (diff <= 0) {
-      diff = 0;
-      stopTimer();
-      playBeep();
-      alert("All Aboard! It's time to board!");
-    }
-
-    const mins = String(Math.floor(diff / 60)).padStart(2, "0");
-    const secs = String(diff % 60).padStart(2, "0");
-    document.getElementById("timeLeft").textContent = `${mins}:${secs}`;
-
-    const bar = document.getElementById("countdownBar");
-    bar.className = "";
-    if (diff <= 300) {
-      bar.classList.add("danger");
-      if (diff === 300) {
-        playBeep();
-        alert("5 Minutes Left - Get ready to board!");
-      }
-    } else if (diff <= 900) {
-      bar.classList.add("warning");
-      if (diff === 900) {
-        playBeep();
-        alert("15 Minutes Left - Head to the gate soon");
-      }
-    }
-  }, 1000);
-}
-
-window.addEventListener("load", () => {
-  const saved = localStorage.getItem("onboardTime");
-  const running = localStorage.getItem("timerRunning");
-
-  if (saved) {
-    document.getElementById("welcomeTimePicker").value = saved;
-    onboardTime = saved;
-  }
-  if (running === "true") {
-    startTimer();
-  }
-});
-
 //pinsdescription page-------
 
 function pinDescription(pin) {
@@ -224,6 +63,15 @@ function pinDescription(pin) {
   <p class="addr">Fee: ${pin.fee}</p>
   <button class="cta" >Take me there </button>
   `;
+  const takeMeBtn = pindescdiv2.querySelector(".cta");
+  takeMeBtn.addEventListener("click", () => {
+    if (pin.lat && pin.lng) {
+      const url = `https://www.google.com/maps?q=${pin.lat},${pin.lng}`;
+      window.open(url, "_blank");
+    } else {
+      alert("Map coordinates missing!");
+    }
+  });
 
   const pindescdiv = document.createElement("div");
   pindescdiv.classList.add("pindesc-div");

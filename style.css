@@ -42,13 +42,11 @@ body::-webkit-scrollbar {
   width: 0;
   background: transparent;
 }
-.timer-box {
+.-container {
   display: flex;
-  align-items: center; /* vertically center them */
-  justify-content: center; /* center the whole row */
-  gap: 8px; /* space between items */
-  margin: 2px 0;
-  flex-wrap: wrap; /* so it drops to next line on small screens */
+  max-width: 100%;
+  width: 100%;
+  background-color: #10b981;
 }
 
 .onboard-row input[type="time"] {
@@ -240,6 +238,12 @@ button:hover {
   overflow: hidden;
   cursor: pointer;
   transition: all 0.3s ease;
+  width: 100%;
+}
+.results-container {
+  display: flex;
+  width: 100%;
+  max-width: 100%;
 }
 .port-card:hover {
   transform: translateY(-3px);
@@ -384,8 +388,10 @@ h2 {
 .allpinscontainer-css {
   display: flex;
   flex-direction: column;
+  width: 100%;
   justify-content: space-evenly;
   margin: 20px 0px;
+  padding: 0 16px;
 }
 
 .pins-list {
@@ -401,7 +407,7 @@ h2 {
   box-shadow: 1px 1px 1px rgb(219, 219, 219);
   border-radius: 20px 20px;
   outline: 1px solid rgb(240, 240, 240);
-  margin: 10px 10px;
+  margin: 10px 0px;
 }
 
 .pincardcoverCss {
