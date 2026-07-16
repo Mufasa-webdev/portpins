@@ -21,10 +21,7 @@
               "lat": "-33.874588674193966",
               "lng": " 151.20681037578464",
               "mapUrl": "https://maps.app.goo.gl/WyK6ZRTCydY2QBCo9",
-              "gallery": [
-                "/mcdonalds-2.jpg",
-                "/jay-wennington-N_Y88TWmGwA-unsplash.jpg"
-              ]
+              "gallery": ["mc2.jpg", "mc.jpg"]
             },
             {
               "name": "Yoci Chinese",
@@ -70,6 +67,20 @@
               "fee": "$-",
               "api": "api-google",
               "gallery": ["Media/sydney-2.webp", "Media/sydney-1.avif"]
+            },
+            {
+              "name": "Apple Store",
+              "dist": "fa-solid fa-walking",
+              "time": "10 min walk",
+              "pinImage": "applestore2.jpeg",
+              "addr": "25 Banik Crescent, Old Potter Cozumel, Mexico",
+              "fee": "$50",
+              "tag": "20% off Deals",
+              "tag2": "Hot",
+              "lat": "-33.874588674193966",
+              "lng": " 151.20681037578464",
+              "mapUrl": "https://maps.app.goo.gl/WyK6ZRTCydY2QBCo9",
+              "gallery": ["applestore.jpg"]
             }
           ]
         }
