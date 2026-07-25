@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="A brief description of your PortPins website"
+    />
+    <title>PortPins</title>
+    <link rel="icon" type="image/png" href="media/inner.png" />
+    <link rel="stylesheet" href="welcome.css" />
+    <link rel="stylesheet" href="card.css" />
+
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+    />
+  </head>
+
+  <body>
+    <header class="header">
+      <div class="left-space">
+        <button id="back-button" style="display: none">Back</button>
+      </div>
+      <div class="logo">PortPins</div>
+      <div class="profile-icon">
+        <i class="fa-solid fa-user"></i>
+      </div>
+    </header>
+    <!--Welcome-->
+    <div class="container">
+      <h1>Welcome</h1>
+      <input
+        id="search-input"
+        type="text"
+        class="search-bar"
+        placeholder="Where's your ship docking?"
+      />
+    </div>
+    <div id="search-results"></div>
+
+    <script src="ports.js"></script>
+    <script src="search.js"></script>
+    <script src="details.js"></script>
+  </body>
+</html>
