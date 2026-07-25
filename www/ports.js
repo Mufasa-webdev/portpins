@@ -12,12 +12,31 @@ var ports = [
       Eat: [
         {
           name: "The Waterfront Bistro",
-          image: "media/yoci.jpg",
+          image: "/www/media/waterfront.webp",
           description:
             "A seafood restaurant with stunning views of the harbor.",
           location: "123 Main St, Sydney",
           rating: 4.5,
           sides: ["free Wifi", "WaterFront", "Live Music"],
+          map: "https://maps.app.goo.gl/LxDaykrG1J86KRDh9",
+        },
+        {
+          name: "Yoci Bakes & Sweets",
+          image: "media/yoci.jpg",
+          description:
+            "A seafood restaurant with stunning views of the harbor.",
+          location: "123 Main St, Circular quay, Sydney",
+          rating: 4.5,
+          sides: "Crew Favorite",
+          map: "https://maps.app.goo.gl/LxDaykrG1J86KRDh9",
+        },
+        {
+          name: "Eastbank Cafe Bar",
+          image: "media/eastbank.jpg",
+          description: "Fresh Dinner.",
+          location: "123 Main St, Circular quay, Sydney",
+          rating: 4.5,
+          sides: "5 minute wait",
           map: "https://maps.app.goo.gl/LxDaykrG1J86KRDh9",
         },
       ],
