@@ -3,8 +3,10 @@
 .hero-slider {
   position: relative;
   width: 100%;
-  height: 200px;
+  height: 300px;
   overflow: hidden;
+  border-radius: 20px;
+  box-shadow: -2zpx 1px 5px rgb(129, 128, 128);
 }
 
 .slides {
@@ -60,8 +62,10 @@
 
 /* Terminal Name Styles */
 #terminal-name {
-  font-size: 24px;
-  font-weight: bold;
+  align-self: center;
+  font-size: 35px;
+  margin: 15px;
+  font-weight: 500;
   margin-bottom: 20px;
 }
 
@@ -144,4 +148,131 @@
 .locations-container .fa-map-marker-alt {
   color: #2ecc71;
   margin-right: 5px;
+}
+.hack-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #333;
+  margin-bottom: 10px;
+  border-radius: 15px;
+  cursor: pointer;
+  border-color: #f2a41c;
+}
+
+.hack-item i {
+  font-size: 24px;
+  margin-right: 10px;
+  color: #ffcd18;
+}
+
+.hack-item p {
+  margin: 0;
+}
+.location-item {
+  position: relative;
+  /* other styles... */
+}
+
+.location-tag {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 4px 8px;
+  background-color: #333;
+  color: #fff;
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.location-tag.luxury {
+  background-color: #05ff65;
+  color: #fffdfd;
+}
+
+.location-sides {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.location-sides li {
+  display: inline-block;
+  margin-right: 8px;
+  font-size: 14px;
+  background-color: #f2a41c;
+  color: white;
+}
+.location-item p {
+  font-size: 15px;
+  color: black;
+}
+.location-item img {
+  height: 100;
+}
+
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.popup-content {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 500px;
+}
+
+.popup-slider {
+  position: relative;
+  height: 200px;
+  overflow: hidden;
+}
+
+.popup-slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 00.5s;
+}
+
+.popup-slide.active {
+  opacity: 1;
+}
+
+.popup-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.prev-slide,
+.next-slide {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: #333;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev-slide {
+  left: 10px;
+}
+
+.next-slide {
+  right: 10px;
 }

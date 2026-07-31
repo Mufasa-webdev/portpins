@@ -7,6 +7,12 @@
   border-top: 1px solid rgb(213, 211, 211);
   border-bottom: 1px solid rgb(213, 211, 211);
 }
+.fa-bed {
+  color: #059240;
+}
+.fa-utensils {
+  color: orange;
+}
 
 .pill {
   display: inline-flex;
