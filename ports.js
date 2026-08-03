@@ -2,11 +2,8 @@ var ports = [
   {
     terminal: "Circular Quay",
     location: "Sydney",
-    coverImage: "/www/media/0527-0634_sydney-circular-quay.jpg",
-    images: [
-      "/www/media/0527-0634_sydney-circular-quay.jpg",
-      "media/sydney-3.jpg",
-    ],
+    coverImage: "media/0527-0634_sydney-circular-quay.jpg",
+    images: ["media/0527-0634_sydney-circular-quay.jpg", "media/sydney-3.jpg"],
     details: "fas fa-anchor",
     categories: {
       Hotels: [
@@ -38,7 +35,7 @@ var ports = [
       Eat: [
         {
           name: "The Waterfront Bistro",
-          image: "/www/media/waterfront.webp",
+          image: "media/waterfront.webp",
           description:
             "A seafood restaurant with stunning views of the harbor.",
           location: "123 Main St, Sydney",
@@ -111,7 +108,7 @@ var ports = [
     terminal: "Noumea",
     location: "New Caledonia",
     coverImage: "media/noumea.jpeg",
-    images: ["/www/media/Noumea2.jpeg", "media/sydney-3.jpg"],
+    images: ["media/Noumea2.jpeg", "media/sydney-3.jpg"],
     details: "fas fa-anchor",
     categories: {
       Eat: [
@@ -286,10 +283,7 @@ var ports = [
     terminal: "Whits Sunday Terminal",
     location: "Airile Beach",
     coverImage: "media/whitsunday.jpeg",
-    images: [
-      "/www/media/0527-0634_sydney-circular-quay.jpg",
-      "media/sydney-3.jpg",
-    ],
+    images: ["media/0527-0634_sydney-circular-quay.jpg", "media/sydney-3.jpg"],
     details: "fas fa-ship",
     Eat: [
       {
@@ -367,16 +361,13 @@ var ports = [
     terminal: "Cairns Cruise Terminal",
     location: "Cairns",
     coverImage: "media/cairns.jpeg",
-    images: [
-      "/www/media/0527-0634_sydney-circular-quay.jpg",
-      "media/sydney-3.jpg",
-    ],
+    images: ["media/0527-0634_sydney-circular-quay.jpg", "media/sydney-3.jpg"],
     details: "fas fa-anchor",
     categories: {
       Eat: [
         {
           name: "The Waterfront Bistro",
-          image: "/www/media/waterfront.webp",
+          image: "media/waterfront.webp",
           description:
             "A seafood restaurant with stunning views of the harbor.",
           location: "123 Main St, Sydney",
@@ -453,16 +444,13 @@ var ports = [
     terminal: "Mystery Island",
     location: "Vanuatu",
     coverImage: "media/mystery island.jpeg",
-    images: [
-      "/www/media/0527-0634_sydney-circular-quay.jpg",
-      "media/sydney-3.jpg",
-    ],
+    images: ["media/0527-0634_sydney-circular-quay.jpg", "media/sydney-3.jpg"],
     details: "fas fa-ship",
     categories: {
       Eat: [
         {
           name: "The Waterfront Bistro",
-          image: "/www/media/waterfront.webp",
+          image: "media/waterfront.webp",
           description:
             "A seafood restaurant with stunning views of the harbor.",
           location: "123 Main St, Sydney",
@@ -539,16 +527,13 @@ var ports = [
     terminal: "Tangalooma",
     location: "Moreton Island",
     coverImage: "media/moreton.jpeg",
-    images: [
-      "/www/media/0527-0634_sydney-circular-quay.jpg",
-      "media/sydney-3.jpg",
-    ],
+    images: ["media/0527-0634_sydney-circular-quay.jpg", "media/sydney-3.jpg"],
     details: "fas fa-ship",
     categories: {
       Eat: [
         {
           name: "The Waterfront Bistro",
-          image: "/www/media/waterfront.webp",
+          image: "media/waterfront.webp",
           description:
             "A seafood restaurant with stunning views of the harbor.",
           location: "123 Main St, Sydney",
