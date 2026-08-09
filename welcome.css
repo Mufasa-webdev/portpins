@@ -12,24 +12,31 @@ body {
   font-family:
     -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
   background-color: white;
-  padding: 10px;
+  padding: 0px;
 }
 
 .hero {
-  max-width: 600px;
-  margin: 60px auto;
+  max-width: 100%;
+  height: 250px;
   padding: 40px 24px;
   text-align: center;
-  background: white;
-  border-radius: 16px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(media/jodi-nelson-JGbWyXvPXa4-unsplash.jpg);
+  background-position: bottom;
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  font-size: 2.2rem;
-  font-weight: 800;
+.headertext {
+  font-size: 3.2rem;
+  font-weight: 600;
   margin: 0 0 8px;
   letter-spacing: -1px;
+  color: #e2e8f0;
 }
 .container {
   display: flex;
@@ -42,21 +49,30 @@ h1 {
 }
 
 .tagline {
-  color: #64748b;
+  color: #faf7f7;
   margin-bottom: 24px;
   font-size: 1rem;
 }
 
 .search-box {
-  display: flex;
-  gap: 8px;
+  width: 60%;
+  position: relative;
+}
+
+.search-box i {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #666;
 }
 
 .search-box input {
   flex: 1;
   padding: 14px 16px;
   border: 1px solid #e2e8f0;
-  border-radius: 10px;
+  border-radius: 20px;
   font-size: 1rem;
   outline: none;
 }
@@ -74,6 +90,10 @@ h1 {
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
+}
+#search-input {
+  width: 100%;
+  padding-left: 30px;
 }
 
 .quick-links {
@@ -99,11 +119,76 @@ h1 {
 }
 .header-logo {
   object-fit: cover;
-  width: 200px;
+  width: 190px;
   height: 50px;
-  object-position: center;
+  object-position: left;
   align-self: center;
 }
 .logo {
   cursor: pointer;
+}
+
+/* Desktop First Approach (for most cases) */
+
+/* Large Screens (Desktops, 1200px and up) */
+@media (min-width: 1200px) {
+  /* Add styles for large desktops here */
+  .container {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+}
+
+/* Medium Screens (Laptops, 992px - 1199px) */
+@media (max-width: 1199px) and (min-width: 992px) {
+  /* Add styles for laptops here */
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+  }
+}
+
+/* Tablet Screens (768px - 991px) */
+@media (max-width: 991px) and (min-width: 768px) {
+  /* Add tablet-specific styles here */
+  .container {
+    max-width: 720px;
+    margin: 0 auto;
+  }
+
+  .flex-container {
+    flex-direction: column;
+  }
+}
+
+/* Mobile Screens (up to 767px) */
+@media (max-width: 767px) {
+  /* Add mobile-specific styles here */
+  .container {
+    padding: 0 15px;
+  }
+  .headertext {
+    font-size: 40px;
+  }
+
+  h1 {
+    font-size: 1.8em;
+  }
+
+  .hide-mobile {
+    display: none;
+  }
+}
+
+/* Extra Small Screens (up to 480px) */
+@media (max-width: 480px) {
+  /* Add extra small screen styles here */
+  h1 {
+    font-size: 1.5em;
+  }
+
+  .btn {
+    width: 100%;
+    padding: 15px;
+  }
 }

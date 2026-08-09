@@ -3,7 +3,7 @@ var ports = [
     terminal: "Noumea",
     location: "New Caledonia",
     coverImage: "media/noumea.jpeg",
-    images: ["media/Noumea2.jpeg", "media/sydney-3.jpg"],
+    images: ["media/IMG_6653.JPG", "media/IMG_6652.WEBP"],
     details: "fas fa-anchor",
     categories: {
       Eat: [
@@ -51,9 +51,12 @@ var ports = [
       ],
       Tour: [
         {
-          name: "Sydney Harbor Cruise",
-          image: "image3.jpg",
-          description: "A guided tour of the harbor and surrounding waters.",
+          name: "Turtle Tours",
+          image: "media/turtles.jpg",
+          time: "2 hrs",
+          price: "$200",
+          info: "A turtle watching experience with both good and ready folks",
+          description: ["Turtles", "Whales"],
           location: "789 Pier St, Sydney",
           rating: 4.8,
           map: "googl.com",

@@ -1,0 +1,87 @@
+.why-us {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: aliceblue;
+}
+.why-ush1 {
+  font-size: 23px;
+  font-weight: 500;
+}
+.why-ush2 {
+  font-size: 15px;
+  font-weight: 400;
+  padding: 0px;
+  margin: 0px;
+  margin-bottom: 50px;
+}
+.feature-text {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.fa-comment {
+  font-size: 40px;
+}
+.feature {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.icon-circle {
+  width: 44px;
+  height: 44px;
+  background: #ffe6ec;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #666;
+  font-size: 14px;
+  margin: 30px 0;
+}
+
+.divider::before,
+.divider::after {
+  content: "";
+  flex: 1;
+  border-bottom: 1px solid #ddd;
+}
+
+.divider::before {
+  margin-right: 16px;
+}
+
+.divider::after {
+  margin-left: 16px;
+}
+.destinations {
+  display: flex;
+  justify-content: space-evenly;
+}
+.des-card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url(media/fernando-jorge-rMaWin9-9Gk-unsplash.jpg);
+  background-position: center;
+  background-size: cover;
+  height: 160px;
+  width: 220px;
+  border-radius: 25px;
+}
+.destext {
+  color: white;
+  font-size: 20px;
+}

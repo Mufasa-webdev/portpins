@@ -157,7 +157,8 @@ function showLocations(category, locations, locationsContainer) {
             <img src="${location.image}" alt="${location.name}">
             <div>
               <h3>${location.name}</h3>
-              <p>${location.price}</p>
+              <p> <i class="fas fa-money-bill"></i> ${location.price}</p>
+              <p> <i class="fas fa-clock"></i> ${location.time}</p>
               <p><i class="fas fa-map-marker-alt"></i> ${location.location}</p>
               <ul class="location-sides">
                 ${Array.isArray(location.description) ? location.description.map((desc) => `<li>${desc}</li>`).join("") : `<li>${location.description}</li>`}
@@ -220,7 +221,7 @@ function showLocationPopup(location, category) {
           <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
           <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <p>${location.description}</p>
+        <p>${location.info}</p>
         <p><i class="fas fa-map-marker-alt"></i> ${location.location}</p>
         <p><i class="fas fa-star"></i> ${location.rating}</p>
         <div class="sides-container">${sidesHtml}</div>

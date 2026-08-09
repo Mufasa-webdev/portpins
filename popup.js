@@ -38,26 +38,6 @@ function showLocationPopup(location, category) {
     ctaButton = `<a href="#" class="cta-button">Book Tour</a>`;
   }
 
-  const popupHtml = `
-    <div class="popup-overlay">
-      <div class="popup-content">
-        <h2>${location.name}</h2>
-        <div class="popup-slider">
-          ${imageHtml}
-        </div>
-        <div class="pagination">
-          ${paginationHtml}
-        </div>
-        <p>${location.description}</p>
-        <p><i class="fas fa-map-marker-alt"></i> ${location.location}</p>
-        <p><i class="fas fa-star"></i> ${location.rating}</p>
-        <div class="sides-container">${sidesHtml}</div>
-        <a href="${mapUrl}" target="_blank" class="cta-button">Open in Google Maps</a>
-        ${ctaButton}
-        <button class="close-popup">Close</button>
-      </div>
-    </div>
-  `;
   document.body.insertAdjacentHTML("beforeend", popupHtml);
 
   const slider = document.querySelector(".popup-slider");
