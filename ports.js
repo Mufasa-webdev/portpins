@@ -49,17 +49,18 @@ var ports = [
           map: "redirect.html?url=https://www.google.com/maps/place/The+Waterfront+Bistro/@-33.8688,151.2093,17z/data=!3m1!4b1!4m5!3m4!1s0x6b12ae37b1cf754b:0x6b12ae37b1cf754c!8m2!3d-33.8688!4d151.2093",
         },
       ],
-      Tour: [
+      Tours: [
         {
           name: "Turtle Tours",
           image: "media/turtles.jpg",
-          time: "2 hrs",
+          time: "2.5 hrs",
           price: "$200",
           info: "A turtle watching experience with both good and ready folks",
           description: ["Turtles", "Whales"],
           location: "789 Pier St, Sydney",
           rating: 4.8,
-          map: "googl.com",
+          tag: "Recommended",
+          cta: "https://google.com",
         },
       ],
       Hotels: [
@@ -69,7 +70,7 @@ var ports = [
           description: "A guided tour of the harbor and surrounding waters.",
           location: "789 Pier St, Sydney",
           rating: 4.8,
-          map: "googl.com",
+          cta: "https://google.com",
         },
       ],
       Tips: [

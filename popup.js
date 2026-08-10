@@ -35,9 +35,9 @@ function showLocationPopup(location, category) {
   } else if (category === "Eat") {
     ctaButton = `<a href="#" class="cta-button">Contact</a>`;
   } else if (category === "Tours") {
-    ctaButton = `<a href="#" class="cta-button">Book Tour</a>`;
+    const link = location.cta || "#"; // get the link from your ports.js
+    ctaButton = `<a href="${link}" target="_blank" rel="noopener" class="cta-button">Book Tour</a>`;
   }
-
   document.body.insertAdjacentHTML("beforeend", popupHtml);
 
   const slider = document.querySelector(".popup-slider");

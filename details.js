@@ -179,7 +179,6 @@ function showLocations(category, locations, locationsContainer) {
     });
   }
 }
-
 function showLocationPopup(location, category) {
   const colors = ["#FF69B4", "#34A85A", "#FFC107", "#8E24AA", "#4CAF50"];
   const sidesArray = Array.isArray(location.sides)
@@ -193,6 +192,7 @@ function showLocationPopup(location, category) {
       return `<span class="side-pill" style="background-color: ${color};">${side.trim()}</span>`;
     })
     .join("");
+
   const images = [location.image, ...(location.gallery || [])];
   const imageHtml = images
     .map((image, index) => {
@@ -203,13 +203,21 @@ function showLocationPopup(location, category) {
       `;
     })
     .join("");
+
+  // FIXED CTA BUTTON LOGIC
+  const ctaLabels = {
+    Hotels: "Book",
+    Transfers: "Book",
+    Eat: "Contact",
+    Tours: "Book Tour",
+    Shop: "Shop Now",
+  };
+  const label = ctaLabels[category] || "Learn More";
+  const link = location.cta || location.map || "#"; // use cta first, fallback to map
+
   let ctaButton = "";
-  if (category === "Hotels" || category === "Transfers") {
-    ctaButton = `<a href="#" class="cta-button">Book</a>`;
-  } else if (category === "Eat") {
-    ctaButton = `<a href="#" class="cta-button">Contact</a>`;
-  } else if (category === "Tours") {
-    ctaButton = `<a href="#" class="cta-button">Book Tour</a>`;
+  if (link !== "#") {
+    ctaButton = `<a href="${link}" target="_blank" rel="noopener" class="cta-button">${label}</a>`;
   }
 
   const popupHtml = `
@@ -221,7 +229,7 @@ function showLocationPopup(location, category) {
           <button class="prev-slide"><i class="fas fa-chevron-left"></i></button>
           <button class="next-slide"><i class="fas fa-chevron-right"></i></button>
         </div>
-        <p>${location.info}</p>
+        <p>${location.info || location.description || ""}</p>
         <p><i class="fas fa-map-marker-alt"></i> ${location.location}</p>
         <p><i class="fas fa-star"></i> ${location.rating}</p>
         <div class="sides-container">${sidesHtml}</div>
