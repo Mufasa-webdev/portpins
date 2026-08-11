@@ -118,7 +118,6 @@ body {
   width: 100%;
   height: 260px; /* was 210px */
   object-fit: cover;
-  display: block;
   transition: transform 0.5s ease;
 }
 .location-item:hover img {
@@ -170,9 +169,11 @@ body {
 .fa-map-marker-alt {
   color: #34a85a;
 }
-.fa-money-bill,
+.fa-money-bill {
+  color: #34a85a;
+}
 .fa-clock {
-  color: #64748b;
+  color: #ff8c08;
 }
 
 /* ===== PREMIUM BADGE ===== */
@@ -196,25 +197,6 @@ body {
   background: linear-gradient(135deg, #8b5cf6, #6366f1);
   color: #fff;
   align-self: center;
-}
-
-/* ===== DESCRIPTION PILLS ===== */
-.location-sides {
-  list-style: none;
-  padding: 0;
-  margin: 12px 0 0;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
-.location-sides li {
-  font-size: 12px;
-  font-weight: 600;
-  background: #ecfdf5;
-  color: #065f46;
-  padding: 6px 12px;
-  border-radius: 999px;
-  border: 1px solid rgba(16, 185, 129, 0.2);
 }
 
 /* ===== HACK ITEM ===== */
@@ -349,33 +331,4 @@ body {
   border-radius: 10px;
   font-weight: 600;
   cursor: pointer;
-}
-
-/* ===== MOBILE: INLINE DESCRIPTION PILLS ===== */
-@media (max-width: 767px) {
-  .hero-slider {
-    height: 360px;
-  } /* still bigger on mobile */
-  .location-sides {
-    display: flex;
-    flex-wrap: nowrap;
-    gap: 8px;
-    overflow-x: auto;
-    padding-bottom: 6px;
-    margin: 12px -18px 0;
-    padding-left: 18px;
-    padding-right: 18px;
-    -webkit-overflow-scrolling: touch;
-  }
-  .location-sides::-webkit-scrollbar {
-    display: none;
-  }
-  .location-sides {
-    scrollbar-width: none;
-  }
-  .location-sides li {
-    flex: 0 0 auto;
-    white-space: nowrap;
-    margin: 0;
-  }
 }

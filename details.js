@@ -160,9 +160,7 @@ function showLocations(category, locations, locationsContainer) {
               <p> <i class="fas fa-money-bill"></i> ${location.price}</p>
               <p> <i class="fas fa-clock"></i> ${location.time}</p>
               <p><i class="fas fa-map-marker-alt"></i> ${location.location}</p>
-              <ul class="location-sides">
-                ${Array.isArray(location.description) ? location.description.map((desc) => `<li>${desc}</li>`).join("") : `<li>${location.description}</li>`}
-              </ul>
+          
             </div>
           </li>
         `,
