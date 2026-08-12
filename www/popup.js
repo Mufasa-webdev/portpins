@@ -45,6 +45,13 @@ function showLocationPopup(location, category, terminal) {
 
   const isFav = isFavorite(location.name);
 
+  // FIX 1: Build share url using current domain so it works on localhost + vercel
+  const slug = encodeURIComponent(
+    location.name.replace(/\s+/g, "-").toLowerCase(),
+  );
+  const shareUrl = `${window.location.origin}/${terminal}/location/${slug}`;
+  const shareText = `Check out ${location.name} on PortPins 🚢`;
+
   const popupHtml = `
     <div class="p-overlay">
       <div class="p-popup">
@@ -67,6 +74,16 @@ function showLocationPopup(location, category, terminal) {
           ${sidesHtml ? `<div class="p-sides">${sidesHtml}</div>` : ""}
           ${ctaButton}
           ${location.map ? `<a href="${location.map}" target="_blank" class="p-map-link"><i class="fas fa-directions"></i> Open in Maps</a>` : ""}
+
+          <!-- SHARE BUTTONS -->
+          <div class="p-share">
+            <p class="p-share-title">Share this</p>
+            <div class="p-share-buttons">
+              <button class="p-share-btn" data-share="native"><i class="fas fa-share-alt"></i> Share</button>
+              <button class="p-share-btn" data-share="whatsapp"><i class="fab fa-whatsapp"></i> WhatsApp</button>
+              <button class="p-share-btn" data-share="copy"><i class="fas fa-link"></i> Copy</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -75,7 +92,6 @@ function showLocationPopup(location, category, terminal) {
   document.body.insertAdjacentHTML("beforeend", popupHtml);
   const popup = document.body.lastElementChild;
 
-  // Store location data on the popup element so we can access it in the click handler
   popup.dataset.location = JSON.stringify(location);
   popup.dataset.terminal = terminal;
 
@@ -118,22 +134,71 @@ function showLocationPopup(location, category, terminal) {
     if (e.target === popup) popup.remove();
   });
 
-  // HEART LOGIC - NEW: Use event listener instead of onclick
+  // HEART LOGIC
   const favBtn = popup.querySelector(".popup-fav-btn");
   favBtn.addEventListener("click", (e) => {
     e.stopPropagation();
     const loc = JSON.parse(popup.dataset.location);
     const term = popup.dataset.terminal;
-
     const added = toggleFavorite(loc.name, loc.image, term, loc);
     favBtn.classList.toggle("active", added || isFavorite(loc.name));
-    renderFavorites(); // update top bar instantly
-
-    // Also update the card heart if we're still on details page
+    renderFavorites();
     const cardBtn = document.querySelector(
       `.location-item[data-name="${loc.name}"].fav-btn`,
     );
     if (cardBtn)
       cardBtn.classList.toggle("active", added || isFavorite(loc.name));
+  });
+
+  // FIX 2: SHARE LOGIC - works on http and https
+  function fallbackCopy(text, btn) {
+    if (navigator.clipboard && window.isSecureContext) {
+      navigator.clipboard.writeText(text).then(() => showCopied(btn));
+    } else {
+      const ta = document.createElement("textarea");
+      ta.value = text;
+      ta.style.position = "fixed";
+      ta.style.left = "-9999px";
+      document.body.appendChild(ta);
+      ta.select();
+      document.execCommand("copy");
+      document.body.removeChild(ta);
+      showCopied(btn);
+    }
+  }
+  function showCopied(btn) {
+    const original = btn.innerHTML;
+    btn.innerHTML = `<i class="fas fa-check"></i> Copied`;
+    setTimeout(() => {
+      btn.innerHTML = original;
+    }, 2000);
+  }
+
+  popup.querySelectorAll(".p-share-btn").forEach((btn) => {
+    btn.addEventListener("click", async (e) => {
+      e.stopPropagation(); // prevents popup from closing
+      const type = btn.dataset.share;
+      const fullMessage = `${shareText} ${shareUrl}`;
+
+      if (type === "native") {
+        if (navigator.share && window.isSecureContext) {
+          try {
+            await navigator.share({
+              title: location.name,
+              text: shareText,
+              url: shareUrl,
+            });
+          } catch {}
+        } else {
+          fallbackCopy(shareUrl, btn);
+          alert("Native share not available on http. Link copied instead.");
+        }
+      } else if (type === "whatsapp") {
+        const waUrl = `https://wa.me/?text=${encodeURIComponent(fullMessage)}`;
+        window.open(waUrl, "_blank", "noopener,noreferrer");
+      } else if (type === "copy") {
+        fallbackCopy(shareUrl, btn);
+      }
+    });
   });
 }

@@ -7,7 +7,7 @@
       content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
     />
     <title>PortPins: Cruise Tours, Activities and things to do |2026</title>
-    <link rel="icon" type="image/png" href="/media/fav.png" />
+    <link rel="icon" type="image/png" href="media/" />
     <link rel="stylesheet" href="welcome.css" />
     <link rel="stylesheet" href="welcome2.css" />
     <link rel="stylesheet" href="card.css" />
@@ -20,25 +20,25 @@
     />
   </head>
   <body>
-    <nav class="main-nav">
-      <div class="nav-container">
-        <a href="index.html" class="nav-logo">
-          <img class="header-logo" src="/media/logo.png" alt="PortPins" />
-        </a>
-
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="blog/index.html">Blog</a></li>
-          <li><a href="about.html">About</a></li>
-        </ul>
-
-        <button class="nav-toggle" id="nav-toggle">
-          <i class="fas fa-bars"></i>
-        </button>
-      </div>
-    </nav>
-
     <div class="hero">
+      <nav class="main-nav">
+        <div class="nav-container">
+          <a href="index.html" class="nav-logo">
+            <img class="header-logo" src="media/logo.png" alt="PortPins" />
+          </a>
+
+          <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="blog/index.html">Blog</a></li>
+            <li><a href="about.html">About</a></li>
+          </ul>
+
+          <button class="nav-toggle" id="nav-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+        </div>
+      </nav>
+
       <h1 class="headertext">Explore Like a Pro</h1>
       <p class="tagline">Find what's open when your ship docks</p>
 
@@ -54,18 +54,57 @@
 
     <div id="search-results"></div>
 
-    <div class="why-us">
-      <h1 class="why-ush1">Why trust Portpins?</h1>
-      <div class="feature">
-        <div class="icon-circle">
-          <i class="fa-solid fa-comment"></i>
+    <section class="why-us">
+      <div class="container">
+        <h2 class="section-title">Why trust PortPins?</h2>
+        <p class="section-subtitle">Curated by cruisers, for cruisers</p>
+
+        <div class="slider-wrapper">
+          <div class="features-slider" id="features-slider">
+            <div class="feature-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-comment-dots"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Crew Insider Tips</h3>
+                <p>
+                  Secrets from people who've been there. Skip the tourist traps.
+                </p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon-circle"><i class="fa-solid fa-map-pin"></i></div>
+              <div class="feature-text">
+                <h3>Port by Port Guides</h3>
+                <p>Know exactly what to do in 4 hours or less at every stop.</p>
+              </div>
+            </div>
+
+            <div class="feature-card">
+              <div class="icon-circle">
+                <i class="fa-solid fa-shield-check"></i>
+              </div>
+              <div class="feature-text">
+                <h3>Verified & Safe</h3>
+                <p>
+                  Only vetted activities with real reviews from cruise guests.
+                </p>
+              </div>
+            </div>
+          </div>
+
+          <button class="slider-btn prev" id="prev-btn">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
+          <button class="slider-btn next" id="next-btn">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
         </div>
-        <div class="feature-text">
-          <h2 class="why-ush1">Crew Insider Tips</h2>
-          <p class="why-ush2">Secrets from people who've been there!</p>
-        </div>
+
+        <div class="slider-dots" id="slider-dots"></div>
       </div>
-    </div>
+    </section>
 
     <div class="divider"><i class="fas fa-heart"></i> My Favorites</div>
     <div class="favorites-scroll" id="favorites-container"></div>
@@ -112,6 +151,7 @@
       </footer>
     </div>
 
+    <script src="whyus..js"></script>
     <script src="hamburger.js"></script>
     <script src="ports.js"></script>
     <script src="search.js"></script>

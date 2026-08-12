@@ -314,3 +314,32 @@
 .popup-fav-btn:active {
   transform: scale(0.9);
 }
+.p-share {
+  margin-top: 16px;
+  border-top: 1px solid #eee;
+  padding-top: 12px;
+}
+.p-share-title {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+.p-share-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+.p-share-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background: #fff;
+  font-size: 13px;
+  cursor: pointer;
+}
+.p-share-btn:active {
+  background: #f5f5f5;
+}

@@ -1,87 +1,160 @@
 .why-us {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background-color: aliceblue;
+  padding: 80px 16px; /* more breathing room */
+  background: #f8f9fc;
 }
-.why-ush1 {
-  font-size: 23px;
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.section-title {
+  font-size: clamp(1.8rem, 4vw, 2.5rem); /* responsive */
+  font-weight: 700;
+  color: #045286; /* your PortPins Blue */
+  margin-bottom: 12px;
+  line-height: 1.2;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #07b575; /* your PortPins Green */
+  margin-bottom: 48px;
   font-weight: 500;
 }
-.why-ush2 {
-  font-size: 15px;
-  font-weight: 400;
-  padding: 0px;
-  margin: 0px;
-  margin-bottom: 50px;
+
+.slider-wrapper {
+  position: relative;
+  overflow: hidden;
+  padding: 0 12px; /* add space left/right for buttons */
 }
-.feature-text {
+
+.features-slider {
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1); /* smoother */
+  touch-action: pan-x; /* better swipe on mobile */
 }
-.fa-comment {
-  font-size: 40px;
-}
-.feature {
+
+/* MOBILE: 1 card per slide */
+.feature-card {
+  min-width: 100%;
+  box-sizing: border-box;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  gap: 20px;
+  background: #ffffff;
+  border-radius: 20px; /* softer */
+  padding: 24px;
+  box-shadow: 0 6px 24px rgba(4, 82, 134, 0.08); /* blue tinted shadow */
+  text-align: left;
+  align-items: flex-start; /* was centering everything */
+  transition: transform 0.2s ease;
 }
+
+.feature-card:active {
+  transform: scale(0.98); /* tap feedback on mobile */
+}
+
 .icon-circle {
-  width: 44px;
-  height: 44px;
-  background: #ffe6ec;
+  background: linear-gradient(135deg, #d4af37, #f0d878); /* gold gradient */
+  color: #ffffff;
+  width: 52px;
+  height: 52px;
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
+  font-size: 22px;
   flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(212, 175, 55, 0.3);
 }
-.divider {
+
+/* Slider controls - show only on mobile */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: #d4af37;
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
   display: flex;
   align-items: center;
-  text-align: center;
-  color: #666;
-  font-size: 14px;
-  margin: 30px 0;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  transition: all 0.2s ease;
+  z-index: 2;
+}
+.slider-btn:hover {
+  background: #b8941f;
+  transform: translateY(-50%) scale(1.1);
+}
+.slider-btn.prev {
+  left: 0px;
+}
+.slider-btn.next {
+  right: 0px;
 }
 
-.divider::before,
-.divider::after {
-  content: "";
-  flex: 1;
-  border-bottom: 1px solid #ddd;
-}
-
-.divider::before {
-  margin-right: 16px;
-}
-
-.divider::after {
-  margin-left: 16px;
-}
-.destinations {
-  display: flex;
-  justify-content: space-evenly;
-}
-.des-card {
+.slider-dots {
   display: flex;
   justify-content: center;
-  align-items: center;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(media/fernando-jorge-rMaWin9-9Gk-unsplash.jpg);
-  background-position: center;
-  background-size: cover;
-  height: 160px;
-  width: 220px;
-  border-radius: 25px;
+  gap: 10px;
+  margin-top: 24px;
 }
-.destext {
-  color: white;
-  font-size: 20px;
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #cbd5e1;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.dot.active {
+  background: #045286; /* your blue instead of old navy */
+  width: 24px; /* pill effect */
+  border-radius: 6px;
+}
+
+.feature-text h3 {
+  font-size: 1.2rem;
+  color: #045286;
+  margin: 0 0 8px 0;
+  font-weight: 600;
+}
+
+.feature-text p {
+  color: #07b575;
+  margin: 0;
+  line-height: 1.6;
+  font-size: 0.95rem;
+  /* removed align-self: center - that was breaking layout */
+}
+
+/* DESKTOP: turn off slider, show grid */
+@media (min-width: 900px) {
+  .features-slider {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+    transform: none !important;
+  }
+  .feature-card {
+    min-width: auto;
+    flex-direction: column; /* stack icon above text on desktop */
+    text-align: center;
+    align-items: center;
+    padding: 32px 24px;
+  }
+  .icon-circle {
+    margin-bottom: 16px;
+  }
+  .slider-btn,
+  .slider-dots {
+    display: none;
+  }
 }
