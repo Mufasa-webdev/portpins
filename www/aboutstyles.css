@@ -1,0 +1,107 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background: #f2f2f2;
+  color: #222;
+  line-height: 1.6;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+  background: white;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+  text-align: center;
+  color: #1a73e8;
+}
+
+h2 {
+  color: #1a73e8;
+  border-bottom: 2px solid #1a73e8;
+  padding-bottom: 8px;
+  margin-top: 40px;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+input,
+textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 6px;
+  font-size: 16px;
+  box-sizing: border-box;
+}
+
+input[type="submit"] {
+  background: #1a73e8;
+  color: white;
+  border: none;
+  padding: 12px;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+input[type="submit"]:active {
+  background: #1558b0;
+}
+
+a {
+  color: #1a73e8;
+  text-decoration: none;
+}
+.about-header {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  margin-bottom: 16px;
+}
+
+.profile-pic {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%; /* makes it circular */
+  object-fit: cover; /* keeps it from stretching */
+  border: 3px solid #00aaff; /* optional: Portpins blue ring */
+}
+.social-links {
+  text-align: center;
+  margin-top: 25px;
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.social-links a {
+  display: inline-block;
+  padding: 10px 16px;
+  background: #f2f2f2;
+  border-radius: 8px;
+  color: #222;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.social-links a:hover {
+  background: #e6e6e6;
+}
+
+.social-links i {
+  margin-right: 8px;
+  color: #1a73e8;
+  font-size: 18px;
+}

@@ -2,8 +2,8 @@ var ports = [
   {
     terminal: "Noumea",
     location: "New Caledonia",
-    coverImage: "media/noumea.jpeg",
-    images: ["media/IMG_6653.JPG", "media/IMG_6652.WEBP"],
+    coverImage: "/media/noumea.jpeg",
+    images: ["/media/IMG_6653.JPG", "/media/IMG_6652.WEBP"],
     details: "fas fa-anchor",
     categories: {
       /*Eat: [
@@ -52,7 +52,7 @@ var ports = [
       Tours: [
         {
           name: "Anthem of the Seas Cruise by Royal Caribbean",
-          image: "media/anthem of seas.png",
+          image: "/media/anthem of seas.png",
           time: "2026 - 2027",
           price: " From A$ 824.19",
           info: "JULY CRUISE SALE! Mega Flash Sales: Offer applies to all sailings departing from 9 Jul 2026 - 9 Jul 2027.",
@@ -95,11 +95,11 @@ var ports = [
   {
     terminal: "Port Villa",
     location: "Vanuatu",
-    coverImage: "media/bluelagoon 3.webp",
+    coverImage: "/media/bluelagoon 3.webp",
     images: [
       "/media/bluelagoon 3.webp",
-      "media/lagoon-shot-54816-banner.jpg",
-      "media/port vila .webp",
+      "/media/lagoon-shot-54816-banner.jpg",
+      "/media/port vila .webp",
     ],
     details: "fas fa-ship",
     categories: {
@@ -149,12 +149,12 @@ var ports = [
       Tours: [
         {
           name: "Blue Lagoon, Cultural Village & Hideaway Island",
-          image: "media/bluelagoon 3.webp",
+          image: "/media/bluelagoon 3.webp",
           gallery: [
-            "media/bluelagoon1.avif",
-            "media/bluelagoon2.avif",
-            "media/bluelagoon4.jpg",
-            "media/bluelagoon5.jpg",
+            "/media/bluelagoon1.avif",
+            "/media/bluelagoon2.avif",
+            "/media/bluelagoon4.jpg",
+            "/media/bluelagoon5.jpg",
           ],
           time: "6 hrs",
           price: "A$190",
@@ -162,30 +162,33 @@ var ports = [
           description: ["Free cancellation", "Pickup"],
           location: "Port Vila",
           rating: 5.0,
-          tag: "Recommended",
+          tag: "hot",
           cta: "https://gyg.me/63mSUTwV",
         },
         {
           name: " Paradise Cove Snorkelling Adventure",
-          image: "media/paradise cove .webp",
-          gallery: ["media/paradise cove 1.webp", "media/paradise cove 2.webp"],
+          image: "/media/paradise cove .webp",
+          gallery: [
+            "/media/paradise cove 1.webp",
+            "/media/paradise cove 2.webp",
+          ],
           time: "2.5 hrs",
           price: "A$113",
           info: "Explore the underwater world of Vanuatu on a snorkeling adventure at Paradise Cove. Swim in crystal-clear waters, spot vibrant marine life, and enjoy a family-friendly experience.",
           description: ["Free cancellation", "Small Group"],
           location: "Port Vila",
           rating: 5.0,
-          tag: "Best Value",
+          tag: "budget",
           cta: "https://gyg.me/63mSUTwV",
         },
         {
           name: " Vanuatu Jungle Zipline",
-          image: "media/zip line.webp",
+          image: "/media/zip line.webp",
           gallery: [
-            "media/zip line 1.avif",
-            "media/zip line 3.webp",
-            "media/zip.webp",
-            "media/zip liine.webp",
+            "/media/zip line 1.avif",
+            "/media/zip line 3.webp",
+            "/media/zip.webp",
+            "/media/zip liine.webp",
           ],
           time: "3.5 hrs",
           price: "A$140",
@@ -193,7 +196,7 @@ var ports = [
           description: ["Free cancellation", "Pickup included"],
           location: "Port Vila",
           rating: 4.9,
-          tag: "Popular",
+          tag: "popular",
           cta: "https://gyg.me/63mSUTwV",
         },
       ] /*
