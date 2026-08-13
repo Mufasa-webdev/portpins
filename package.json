@@ -6,6 +6,7 @@
   "dependencies": {
     "@capacitor/android": "^8.5.0",
     "@capacitor/ios": "^8.5.0",
+    "@vercel/analytics": "^2.0.1",
     "ansi-regex": "^5.0.1",
     "ansi-styles": "^4.3.0",
     "astral-regex": "^2.0.0",
