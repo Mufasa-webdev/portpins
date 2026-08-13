@@ -1,0 +1,116 @@
+/* ===== SHARE BUTTONS - DESKTOP SIDEBAR + MOBILE BAR ===== */
+.share-sidebar {
+  position: sticky;
+  top: 120px;
+  left: -80px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 60px;
+  margin-left: -80px;
+  z-index: 50;
+}
+
+.share-sidebar p {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  writing-mode: vertical-rl;
+}
+
+.share-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(46, 204, 113, 0.2);
+}
+
+.share-btn.facebook:hover {
+  color: #1877f2;
+  border-color: #1877f2;
+}
+.share-btn.twitter:hover {
+  color: #1da1f2;
+  border-color: #1da1f2;
+}
+.share-btn.whatsapp:hover {
+  color: #25d366;
+  border-color: #25d366;
+}
+.share-btn.copy:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* ===== TABLET: 768px - 1199px ===== */
+@media (max-width: 1199px) and (min-width: 768px) {
+  .share-sidebar {
+    position: sticky;
+    top: 20px;
+    float: none;
+    flex-direction: row;
+    justify-content: center;
+    width: 100%;
+    margin: 0 0 30px 0;
+    left: 0;
+    background: var(--bg);
+    padding: 12px 0;
+    border-bottom: 1px solid var(--border);
+  }
+  .share-sidebar p {
+    writing-mode: lr;
+    margin-right: 12px;
+  }
+}
+
+/* ===== MOBILE: < 768px - BOTTOM STICKY BAR ===== */
+@media (max-width: 767px) {
+  .share-sidebar {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: auto;
+    float: none;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin: 0;
+    padding: 10px 16px;
+    background: var(--card);
+    border-top: 1px solid var(--border);
+    box-shadow: 0 -4px 20px rgba(0, 0, 0, 0.08);
+    z-index: 999;
+  }
+  .share-sidebar p {
+    display: none;
+  } /* Hide "Share" text on mobile */
+  .share-btn {
+    width: 48px;
+    height: 48px;
+  }
+
+  /* Add padding to bottom of page so content isn't hidden behind bar */
+  body {
+    padding-bottom: 80px;
+  }
+}

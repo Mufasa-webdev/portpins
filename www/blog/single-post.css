@@ -1,0 +1,229 @@
+:root {
+  --primary: #2ecc71;
+  --primary-dark: #27ae60;
+  --bg: #f9fafb;
+  --text: #111827;
+  --muted: #6b7280;
+  --card: #ffffff;
+  --border: #e5e7eb;
+  --radius: 20px;
+  --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.06);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  margin: 0;
+  padding-bottom: 100px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 80px;
+  margin-bottom: 40px;
+}
+
+.navbar a {
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 15px;
+  transition: color 0.2s;
+}
+.navbar a:hover {
+  color: var(--primary);
+}
+
+.navbar h1 {
+  font-size: 1.6rem;
+  font-weight: 900;
+  margin: 0;
+  background: linear-gradient(135deg, var(--primary), var(--primary-dark));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* ===== POST WRAPPER ===== */
+.blog-post-wrapper {
+  max-width: 780px;
+  margin: 0 auto;
+  padding: 0 40px 100px 40px;
+  position: relative;
+}
+
+.blog-post-hero {
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: var(--radius);
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-sm);
+}
+
+.blog-date {
+  font-size: 14px;
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.blog-post h1 {
+  font-size: 2.8rem;
+  font-weight: 900;
+  letter-spacing: -1.5px;
+  line-height: 1.15;
+  margin: 0 0 24px 0;
+}
+
+.blog-post h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin: 48px 0 16px 0;
+  letter-spacing: -0.5px;
+}
+
+.blog-post h3 {
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin: 32px 0 12px 0;
+}
+
+.blog-post p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+  margin-bottom: 24px;
+  color: #374151;
+}
+
+.blog-post ul {
+  padding-left: 24px;
+  margin-bottom: 24px;
+}
+.blog-post li {
+  margin-bottom: 12px;
+  line-height: 1.8;
+  font-size: 1.1rem;
+}
+.blog-post strong {
+  font-weight: 700;
+  color: var(--text);
+}
+
+/* Tags */
+.blog-tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  margin: 0 0 40px 0;
+}
+.blog-tag {
+  background: #e6fcf1;
+  color: #065f46;
+  padding: 8px 16px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+  border: 1px solid #a7f3d0;
+}
+
+/* ===== STICKY SHARE SIDEBAR ===== */
+.share-sidebar {
+  position: sticky;
+  top: 120px;
+  left: -80px;
+  float: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 60px;
+  margin-left: -80px;
+}
+
+.share-sidebar p {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin: 0;
+  writing-mode: vertical-rl;
+}
+
+.share-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: var(--card);
+  border: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--muted);
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+  text-decoration: none;
+}
+
+.share-btn:hover {
+  transform: translateY(-3px);
+  border-color: var(--primary);
+  box-shadow: 0 8px 20px rgba(46, 204, 113, 0.2);
+}
+
+.share-btn.facebook:hover {
+  color: #1877f2;
+  border-color: #1877f2;
+}
+.share-btn.twitter:hover {
+  color: #1da1f2;
+  border-color: #1da1f2;
+}
+.share-btn.whatsapp:hover {
+  color: #25d366;
+  border-color: #25d366;
+}
+.share-btn.copy:hover {
+  color: var(--primary);
+  border-color: var(--primary);
+}
+
+/* Hide share on smaller screens */
+@media (max-width: 1200px) {
+  .share-sidebar {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    padding: 16px 20px;
+  }
+  .blog-post-wrapper {
+    padding: 0 20px 80px 20px;
+  }
+  .blog-post h1 {
+    font-size: 2.2rem;
+  }
+  .blog-post-hero {
+    height: 260px;
+  }
+}

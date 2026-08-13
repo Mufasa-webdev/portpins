@@ -10,24 +10,76 @@
       name="description"
       content="Carnival Splendor offers affordable family cruises with water parks, Guy's Burgers, Dr. Seuss parties, and amazing destinations. Full ship review."
     />
-    <link rel="stylesheet" href="/blog/blog.css" />
+    <link rel="stylesheet" href="single-post.css" />
+    <link rel="stylesheet" href="share.css" />
   </head>
   <body>
     <header class="navbar">
+      <!-- 1. Header comes FIRST, outside main -->
       <a href="index.html">← Back to Blog</a>
       <h1>PortPins Blog</h1>
       <div></div>
     </header>
 
     <main class="blog-post-wrapper">
+      <!-- 2. Only ONE main tag -->
+      <aside class="share-sidebar">
+        <!-- 3. Aside comes FIRST inside main -->
+        <p>Share</p>
+        <a
+          href="#"
+          class="share-btn facebook"
+          target="_blank"
+          aria-label="Share on Facebook"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M22 12c0-5.52-4.48-10-10-10S2 6.48 2 12c0 4.84 3.44 8.87 8 9.8V15H8v-3h2V9.5C10 7.57 11.57 6 13.5 6H16v3h-2c-.55 0-1 .45-1 1v2h3v3h-3v6.95c5.05-.5 9-4.76 9-9.95z"
+            />
+          </svg>
+        </a>
+        <a
+          href="#"
+          class="share-btn twitter"
+          target="_blank"
+          aria-label="Share on Twitter"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M18.244 2H21l-6.52 7.44L22 22h-6.83l-4.78-6.26L5.93 22H3l7.03-8.02L2 2h6.94l4.32 5.67L18.24 2zm-1.16 18h1.94L7.05 4H5.08l11.99 16z"
+            />
+          </svg>
+        </a>
+        <a
+          href="#"
+          class="share-btn whatsapp"
+          target="_blank"
+          aria-label="Share on WhatsApp"
+        >
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M20.52 3.449C18.238 1.245 15.24 0.008 12.04 0h-.04C5.507 0 .095 5.413.092 12.002c0 2.114.553 4.18 1.605 6.006L0 24l6.12-1.607c1.735.947 3.673 1.444 5.627 1.445h.04c6.532 0 11.944-5.413 11.947-12.002 0-3.194-1.238-6.207-3.49-8.387zm-6.38 17.226c-1.765 0-3.496-.474-5.02-1.368L5 20.597l1.32-4.24c-.983-1.534-1.5-3.3-1.5-5.115C4.82 6.149 8.478 2.49 12.07 2.49c1.75 0 3.393.683 4.63 1.923.79.79 1.43 1.72 1.88 2.72.45 1 .7 2.08.7 3.22.002 5.108-4.14 9.247-9.258 9.247zm5.482-6.914c-.298-.149-1.76-.867-2.03-.967-.27-.099-.47-.148-.67.15-.197.297-.767.966-.94 1.164-.17.199-.34.223-.64.075-.3-.15-1.26-.463-2.4-1.475-.89-.793-1.49-1.77-1.66-2.07-.18-.3-.02-.46.13-.61.14-.14.3-.36.42-.54.12-.18.16-.3.24-.5.08-.2.04-.37-.02-.52-.06-.15-.67-1.62-.94-2.22-.25-.58-.51-.5-.67-.51-.17-.01-.37-.01-.57-.01-.2 0-.52.07-.8.37-.27.3-1.05 1.03-1.05 2.5s1.08 2.9 1.23 3.1c.15.2 2.12 3.24 5.14 4.54.72.31 1.28.5 1.72.64.73.23 1.39.2 1.92.12.58-.09 1.76-.72 2-1.41.25-.69.25-1.28.17-1.41-.07-.13-.27-.2-.56-.35z"
+            />
+          </svg>
+        </a>
+        <a href="#" class="share-btn copy" aria-label="Copy Link">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"
+            />
+          </svg>
+        </a>
+      </aside>
+
       <img
-        src="../assets/blog/carnival-splendor.jpg"
+        src="../assets/blog/carnival-splendor-sydney-bridge.jpg"
         class="blog-post-hero"
         alt="Carnival Splendor cruise ship at sea"
       />
 
       <p class="blog-date">August 11, 2026 • 5 min read</p>
       <h1>Carnival Splendor: The Perfect Family Cruise Ship</h1>
+      <!-- rest of content -->
 
       <div class="blog-tags">
         <span class="blog-tag">Cruise</span>
@@ -174,9 +226,10 @@
         </p>
         <p>
           Pro tip: Book an aft balcony. You get amazing views of the wake and
-          it’s usually cheaper than mid-ship.
+          it’s sometimes cheaper than mid-ship staterooms.
         </p>
       </article>
     </main>
+    <script src="share.js"></script>
   </body>
 </html>
