@@ -143,6 +143,10 @@ body {
   font-weight: 700;
   border: 1px solid #a7f3d0;
 }
+.post-image {
+  width: 100%;
+  border-radius: 20px;
+}
 
 /* ===== STICKY SHARE SIDEBAR ===== */
 .share-sidebar {
