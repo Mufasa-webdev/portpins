@@ -93,7 +93,7 @@ var ports = [
   },
 
   {
-    terminal: "Port Villa",
+    terminal: "Port Vila",
     location: "Vanuatu",
     coverImage: "media/bluelagoon 3.webp",
     images: [
