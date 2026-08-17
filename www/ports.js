@@ -62,6 +62,25 @@ var ports = [
           tag: "Best Value",
           cta: "https://affiliate.klook.com/sl/3I4bkj0",
         },
+
+        {
+          name: "Full Day Water Taxi to Amedee Island from Noumea",
+          image: "media/amedee4.jpg",
+          gallery: [
+            "media/amedee1.jpg",
+            "media/amedee2.jpg",
+            "media/amedee3.jpg",
+            "media/amedee5.jpg",
+          ],
+          time: "4hrs",
+          price: "$88.95",
+          info: "Swim in water frequented by turtles and see colorful corals and reef fish ",
+          description: ["Discounted for Kids"],
+          location: "New-Caledonia",
+          rating: 4.6,
+          tag: "popular",
+          cta: "https://www.viator.com/tours/Noumea/AMEDEE-ISLAND-Water-Taxi-full-day/d4780-52484P10?pid=P00312971&mcid=42383&medium=link",
+        },
       ],
       /*Hotels: [
         {
