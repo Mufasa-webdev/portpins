@@ -231,3 +231,24 @@ body {
     height: 260px;
   }
 }
+/* Affiliate Disclosure - Portpins Style */
+.affiliate-disclosure {
+  background: #fff8e1;
+  border: 1px solid #ffe082;
+  border-left: 4px solid #ffc107;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 20px 0 24px 0;
+  font-size: 13px;
+  line-height: 1.5;
+  color: #5d4037;
+}
+
+.affiliate-disclosure p {
+  margin: 0;
+}
+
+.affiliate-disclosure a {
+  color: #5d4037;
+  text-decoration: underline;
+}
