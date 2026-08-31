@@ -60,6 +60,7 @@ img {
   font-weight: 600;
   font-size: 15px;
   transition: color 0.2s;
+  color: #2ecc71;
 }
 
 .nav-links a:hover {
