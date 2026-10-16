@@ -4,131 +4,254 @@
     <meta charset="UTF-8" />
     <meta
       name="impact-site-verification"
-      value="fe29d426-8e87-4342-ba0e-deb7ca6e9c6b"
+      content="fe29d426-8e87-4342-ba0e-deb7ca6e9c6b"
     />
     <meta
       name="viewport"
-      content="width=device-width, initial-scale=1.0, viewport-fit=cover, user-scalable=no"
+      content="width=device-width, initial-scale=1.0, viewport-fit=cover"
     />
-    <title>PortPins: Cruise Tours, Activities and things to do |2026</title>
+    <title>
+      PortPins Blog - Cruise Guides From Crew Who Live Onboard | 2026
+    </title>
+    <meta
+      name="description"
+      content="I work on Carnival Cruise ships. Real tips to pack smart, avoid hidden fees, and explore ports like a local."
+    />
     <script defer src="/_vercel/insights/script.js"></script>
     <link rel="icon" type="image/png" href="media/fav.png" />
+    <link rel="stylesheet" href="blog-home.css" />
     <link rel="stylesheet" href="welcome.css" />
     <link rel="stylesheet" href="welcome2.css" />
-    <link rel="stylesheet" href="card.css" />
-    <link rel="stylesheet" href="footer.css" />
     <link rel="stylesheet" href="toppins.css" />
-
+    <link rel="stylesheet" href="" />
+    <link rel="stylesheet" href="footer.css" />
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
     />
   </head>
   <body>
-    <div class="hero">
-      <nav class="main-nav">
+    <div class="hero blog-hero">
+      <nav class="main-nav nav-transparent">
         <div class="nav-container">
-          <a href="index.html" class="nav-logo">
-            <img class="header-logo" src="media/logo.png" alt="PortPins" />
-          </a>
-
+          <a href="index.html" class="nav-logo"
+            ><img class="header-logo" src="media/logo.png" alt="PortPins"
+          /></a>
           <ul class="nav-links">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="blog/index.html">Blog</a></li>
-            <li><a href="about.html">About</a></li>
+            <li><a href="index.html" class="nav-link-white">Home</a></li>
+            <li><a href="blog/index.html" class="nav-link-white">Guides</a></li>
+            <li><a href="about.html" class="nav-link-white">About</a></li>
           </ul>
-
           <button class="nav-toggle" id="nav-toggle">
             <i class="fas fa-bars"></i>
           </button>
         </div>
       </nav>
 
-      <h1 class="headertext">Explore Like a Pro</h1>
-      <p class="tagline">Find what's open when your ship docks</p>
-
-      <div class="search-box">
-        <i class="fas fa-search"></i>
-        <input
-          id="search-input"
-          type="text"
-          placeholder="Where's your ship docking?"
-        />
+      <div class="blog-hero-inner">
+        <div class="blog-hero-text">
+          <div class="yellow-badge">
+            SAVE OVER $200 — 7 things cruisers<br />forget that cost a fortune
+            onboard
+          </div>
+          <h1>I work onboard.<br />Here's how to cruise with best value.</h1>
+          <p class="sub">
+            Real, money-saving tips from onboard crew to help you pack smart,
+            skip hidden fees, and explore every port like a local — without
+            overspending.
+          </p>
+          <form class="email-box" id="klaviyo-form">
+            <div class="klaviyo-form-XGVjWe"></div>
+          </form>
+          <p class="email-note">
+            ✓ No spam. Unsubscribe anytime • Join 5,200+ cruisers
+          </p>
+        </div>
       </div>
     </div>
-
-    <div id="search-results"></div>
-
-    <section class="why-us">
-      <div class="container">
-        <h2 class="section-title">Why trust PortPins?</h2>
-        <p class="section-subtitle">Curated by cruisers, for cruisers</p>
-
-        <div class="slider-wrapper">
-          <div class="features-slider" id="features-slider">
-            <div class="feature-card">
-              <div class="icon-circle">
-                <i class="fa-solid fa-comment-dots"></i>
-              </div>
-              <div class="feature-text">
-                <h3>Crew Insider Tips</h3>
-                <p>
-                  Secrets from people who've been there. Skip the tourist traps.
-                </p>
-              </div>
-            </div>
-
-            <div class="feature-card">
-              <div class="icon-circle"><i class="fa-solid fa-map-pin"></i></div>
-              <div class="feature-text">
-                <h3>Port by Port Guides</h3>
-                <p>Know exactly what to do in 4 hours or less at every stop.</p>
-              </div>
-            </div>
-
-            <div class="feature-card">
-              <div class="icon-circle">
-                <i class="fa-solid fa-shield-check"></i>
-              </div>
-              <div class="feature-text">
-                <h3>Verified & Safe</h3>
-                <p>
-                  Only vetted activities with real reviews from cruise guests.
-                </p>
-              </div>
-            </div>
-          </div>
-
-          <button class="slider-btn prev" id="prev-btn">
-            <i class="fa-solid fa-chevron-left"></i>
-          </button>
-          <button class="slider-btn next" id="next-btn">
-            <i class="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-
-        <div class="slider-dots" id="slider-dots"></div>
-      </div>
+    <section>
+      <div
+        class="eg-widget"
+        data-widget="search"
+        data-program="us-expedia"
+        data-lobs="stays,flights"
+        data-network="pz"
+        data-camref="1101l6uQHN"
+        data-pubref=""
+      ></div>
     </section>
 
-    <div class="divider"><i class="fas fa-heart"></i> My Favorites</div>
-    <div class="favorites-scroll" id="favorites-container"></div>
+    <section class="latest-section">
+      <h2 class="section-title">Latest Guides</h2>
+      <p class="section-subtitle">
+        Fresh, practical advice from the crew — updated weekly
+      </p>
+
+      <div class="guides-grid">
+        <!-- Wifi -->
+
+        <a
+          href="blog/Ship's-Wifi-Everthing-you -need-to-know.html"
+          class="guide-card"
+        >
+          <img
+            src="assets/blog/steven-inspire-Y16YTreRZgo-unsplash.png"
+            alt=""
+          />
+          <div class="card-body">
+            <div class="kicker">Cruise Guide</div>
+            <h3>Ship's Wifi - Full Guide</h3>
+            <p>What is free and what is not when using the ship's wifi</p>
+            <div class="meta">
+              <i class="fa-regular fa-clock"></i> 5 min read • Oct 10
+            </div>
+          </div>
+        </a>
+        <!-- 1 - Packing List -->
+
+        <a
+          href="blog/The-Ultimate-Carnival-Cruise-Packing-List-What-To-Pack-For-Every-Night-& -Port Day.html"
+          class="guide-card"
+        >
+          <img
+            src="assets/blog/packing right for the cruise to save money.webp"
+            alt=""
+          />
+          <div class="card-body">
+            <div class="kicker">Packing</div>
+            <h3>Ultimate Carnival Packing List</h3>
+            <p>What to pack for every night & port day — crew approved.</p>
+            <div class="meta">
+              <i class="fa-regular fa-clock"></i> 8 min read • Aug 24
+            </div>
+          </div>
+        </a>
+
+        <!-- 2 - 6 Things -->
+        <a
+          href="blog/6-things-cruisers-forget-that-cost-a-fortune.html"
+          class="guide-card"
+        >
+          <img
+            src="assets/blog/cruisepacl.jpg"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1579621970563-ebec7560ff3e?w=600'
+            "
+            alt="Things that cost a fortune"
+          />
+          <div class="card-body">
+            <div class="kicker">Money Saving</div>
+            <h3>6 Things That Cost a Fortune</h3>
+            <p>Avoid these common fees and hidden charges on Carnival.</p>
+            <div class="meta">
+              <i class="fa-regular fa-clock"></i> 6 min read • Aug 24
+            </div>
+          </div>
+        </a>
+
+        <!-- 3 - Tangalooma -->
+        <a
+          href="blog/Tangalooma-Resort-(Moreton Island)-Cruise-Guide-2026-Tender-Port-Beach-ATV.html"
+          class="guide-card"
+        >
+          <img
+            src="assets/blog/tangalooma.JPG"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1507525428034-b723cf961d3e?w=600'
+            "
+            alt="Moreton Island"
+          />
+          <div class="card-body">
+            <div class="kicker">Port Guide</div>
+            <h3>Moreton Island Guide</h3>
+            <p>Snorkeling, sand dunes, and what to do in a half-day stop.</p>
+            <div class="meta">
+              <i class="fa-regular fa-clock"></i> 7 min read • Aug 23
+            </div>
+          </div>
+        </a>
+
+        <!-- 4 - Mystery Island -->
+        <a
+          href="blog/mystery-island-vanuatu-cruise-guide.html"
+          class="guide-card"
+        >
+          <img
+            src="assets/blog/mystery-island.png"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1519046904884-53103b34f59d?w=600'
+            "
+            alt="Mystery Island"
+          />
+          <div class="card-body">
+            <div class="kicker">Port Guide</div>
+            <h3>Mystery Island Guide</h3>
+            <p>Free beaches, kava, and how tender ports really work.</p>
+            <div class="meta">
+              <i class="fa-regular fa-clock"></i> 5 min read • Aug 17
+            </div>
+          </div>
+        </a>
+
+        <!-- 5 - Coffee -->
+        <a
+          href="blog/Every-type-of-coffee-Served-Onboard-Carnival-Cruise-Ships-[2026-Guide].html"
+          class="guide-card"
+        >
+          <img
+            src="assets/blog/java-blue-cafe.jpg"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600'
+            "
+            alt="Coffee on Carnival"
+          />
+          <div class="card-body">
+            <div class="kicker">Food</div>
+            <h3>Every Coffee On Carnival</h3>
+            <p>I tried every cup onboard — what's free vs worth paying.</p>
+            <div class="meta">
+              <i class="fa-regular fa-clock"></i> 6 min read • Aug 14
+            </div>
+          </div>
+        </a>
+
+        <!-- 6 - Splendor -->
+        <a href="blog/post-carnival-splendor.html" class="guide-card">
+          <img
+            src="assets/blog/carnival-splendor-sydney-bridge.jpg"
+            onerror="
+              this.src =
+                'https://images.unsplash.com/photo-1548574505-5e239809ee19?w=600'
+            "
+            alt="Carnival Splendor"
+          />
+          <div class="card-body">
+            <div class="kicker">Ships</div>
+            <h3>Carnival Splendor Family Guide</h3>
+            <p>Guy's Burgers, WaterWorks, Dr Seuss parties — full breakdown.</p>
+            <div class="meta">
+              <i class="fa-regular fa-clock"></i> 8 min read • Aug 11
+            </div>
+          </div>
+        </a>
+      </div>
+    </section>
 
     <div id="footer-placeholder">
       <footer class="app-footer">
         <div class="footer-content">
           <div class="footer-brand">
-            <h3>Port Explorer</h3>
-            <p>Your cruise port guide</p>
+            <h3>PortPins</h3>
+            <p>Cruise better. From crew who live onboard.</p>
           </div>
-
           <div class="footer-links">
-            <a href="index.html">Home</a>
-            <a href="#">About</a>
-            <a href="#">Privacy</a>
-            <a href="#">Support</a>
+            <a href="index.html">Home</a><a href="blog/index.html">Guides</a
+            ><a href="about.html">About</a><a href="#">Privacy</a>
           </div>
-
           <div class="footer-social">
             <a
               href="mailto:portsidepleasures@gmail.com"
@@ -136,34 +259,82 @@
               aria-label="Email"
               ><i class="fa fa-envelope"></i
             ></a>
-            <a href="www.instagram.com/portpins" aria-label="Instagram"
+            <a href="https://www.instagram.com/portpins" aria-label="Instagram"
               ><i class="fab fa-instagram"></i
             ></a>
-            <!--<a href="#" aria-label="Tiktok"><i class="fab fa-tiktok"></i></a>-->
           </div>
-
-          <!-- DISCLAIMER -->
           <div class="footer-disclaimer">
             <p>
-              <i class="fas fa-info-circle"></i>
-              Disclaimer: Some links on this app may be affiliate links. We may
-              receive a commission if you book through them, at no extra cost to
-              you. This helps us keep the app free.
+              <i class="fas fa-info-circle"></i> Some links are affiliate links.
+              We may receive a commission at no extra cost to you.
             </p>
           </div>
         </div>
-
         <div class="footer-bottom">
-          <p>© 2026 Port Explorer. Made with ❤️ for cruisers</p>
+          <p>© 2026 PortPins • portpins.online • Made with ❤️ for cruisers</p>
         </div>
       </footer>
     </div>
 
-    <script src="whyus..js"></script>
     <script src="hamburger.js"></script>
-    <script src="ports.js"></script>
-    <script src="search.js"></script>
-    <script src="details.js"></script>
-    <script src="favorites.js"></script>
+    <script
+      class="eg-widgets-script"
+      src="https://creator.expediagroup.com/products/widgets/assets/eg-widgets.js"
+    ></script>
+    <script
+      async
+      type="text/javascript"
+      src="https://static.klaviyo.com/onsite/js/VjYvLM/klaviyo.js?company_id=VjYvLM"
+    ></script>
+    <script type="text/javascript">
+      //Initialize Klaviyo object on page load
+      !(function () {
+        if (!window.klaviyo) {
+          window._klOnsite = window._klOnsite || [];
+          try {
+            window.klaviyo = new Proxy(
+              {},
+              {
+                get: function (n, i) {
+                  return "push" === i
+                    ? function () {
+                        var n;
+                        (n = window._klOnsite).push.apply(n, arguments);
+                      }
+                    : function () {
+                        for (
+                          var n = arguments.length, o = new Array(n), w = 0;
+                          w < n;
+                          w++
+                        )
+                          o[w] = arguments[w];
+                        var t =
+                            "function" == typeof o[o.length - 1]
+                              ? o.pop()
+                              : void 0,
+                          e = new Promise(function (n) {
+                            window._klOnsite.push(
+                              [i].concat(o, [
+                                function (i) {
+                                  (t && t(i), n(i));
+                                },
+                              ]),
+                            );
+                          });
+                        return e;
+                      };
+                },
+              },
+            );
+          } catch (n) {
+            ((window.klaviyo = window.klaviyo || []),
+              (window.klaviyo.push = function () {
+                var n;
+                (n = window._klOnsite).push.apply(n, arguments);
+              }));
+          }
+        }
+      })();
+    </script>
   </body>
 </html>
