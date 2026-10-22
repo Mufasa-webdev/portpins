@@ -86,9 +86,7 @@ img {
   min-height: 250px; /* changed from fixed height */
   padding: 40px 24px;
   text-align: center;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
-    url(media/jodi-nelson-JGbWyXvPXa4-unsplash.jpg);
+
   background-position: bottom;
   background-size: cover;
   display: flex;
