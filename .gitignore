@@ -2,3 +2,4 @@ node_modules/
 ios/
 .DS_Store
 .vercel
+www/
